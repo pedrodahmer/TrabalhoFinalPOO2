@@ -80,6 +80,6 @@ public class Aluno {
 		this.horasSemanais = horasSemanais;
 	}
 	
-	// Aqui agora
+	// Aqui agora vai
 	
 }
