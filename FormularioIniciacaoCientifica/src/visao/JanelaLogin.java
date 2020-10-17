@@ -4,9 +4,7 @@ import javax.swing.JPanel;
 
 public class JanelaLogin extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
+	//construtor da janela de login
 	public JanelaLogin() {
 
 	}
