@@ -27,6 +27,7 @@ public class JanelaPrincipal extends JFrame {
 
 	private JPanel contentPane;
 	private JanelaLogin jl;
+	private JanelaCadastro jc;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -47,20 +48,35 @@ public class JanelaPrincipal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		
+		setResizable(false); // Desabilitar redimensionamento
+		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Arquivo");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Sair");
-		mntmNewMenuItem.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/exit.png")));
-		mntmNewMenuItem.addActionListener(new ActionListener() {
+		// Sair do programa
+		JMenuItem itemSair = new JMenuItem("Sair");
+		itemSair.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/exit.png")));
+		itemSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-		mnNewMenu.add(mntmNewMenuItem);
+		mnNewMenu.add(itemSair);
+		
+		// Voltar a tela principal
+		JMenuItem itemMenuPrincipal = new JMenuItem("Menu Principal");
+		itemMenuPrincipal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+			}
+		});
+		mnNewMenu.add(itemMenuPrincipal);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -91,10 +107,11 @@ public class JanelaPrincipal extends JFrame {
 		
 		//Botão de Login
 		JButton btnLogin = new JButton("Logar");
+		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnLogin.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
 				jl = new JanelaLogin();
-				
+				contentPane.add(jl, "telaLogin");
 				CardLayout cl = (CardLayout) contentPane.getLayout();
 	            cl.show(contentPane, "telaLogin");
 			}
@@ -104,6 +121,17 @@ public class JanelaPrincipal extends JFrame {
 		
 		//Botão de cadastro
 		JButton btnCadastro = new JButton("Cadastrar-se");
+		btnCadastro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				jc = new JanelaCadastro();
+				contentPane.add(jc, "telaCadastro");
+				CardLayout cl = (CardLayout) contentPane.getLayout();
+				cl.show(contentPane, "telaCadastro");
+				
+			}
+		});
+		btnCadastro.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnCadastro.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/icon-cadastro.png")));
 		panel.add(btnCadastro, "cell 0 4,alignx center");
 	}
