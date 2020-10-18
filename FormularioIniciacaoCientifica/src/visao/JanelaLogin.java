@@ -16,7 +16,6 @@ import java.awt.event.ActionEvent;
 public class JanelaLogin extends JPanel {
 	private JTextField fieldUsuario;
 	private JTextField fieldSenha;
-	private JanelaSelecao js;
 	private JButton btnLogar;
 	private JButton btnLimpar;
 

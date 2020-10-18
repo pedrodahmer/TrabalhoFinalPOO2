@@ -1,16 +1,19 @@
 package controle;
 
 import visao.JanelaCadastro;
+import visao.JanelaExecucao;
 import visao.JanelaLogin;
 import visao.JanelaPrincipal;
-import visao.JanelaSelecao;
 
 public class AppFormulario {
 	public static void main(String[] args) {
 		
-		JanelaPrincipal jan = new JanelaPrincipal();
-		ClasseControle cc = new ClasseControle(jan);
+		JanelaPrincipal jp = new JanelaPrincipal();
+		JanelaLogin jl = new JanelaLogin();
+		JanelaCadastro jc = new JanelaCadastro();
+		JanelaExecucao je = new JanelaExecucao();
+		ClasseControle cc = new ClasseControle(jp, jl, jc, je);
 		
-		jan.setVisible(true);
+		jp.setVisible(true);
 	}
 }

@@ -28,6 +28,10 @@ public class JanelaPrincipal extends JFrame {
 	private JPanel contentPane;
 	private JanelaLogin jl;
 	private JanelaCadastro jc;
+	private JMenuItem itemMenuPrincipal;
+	
+	private JButton btnLogin;
+	private JButton btnCadastro;
 
 	public JanelaPrincipal() {
 		setTitle("Formul\u00E1rio de inscri\u00E7\u00E3o para IC");
@@ -53,7 +57,8 @@ public class JanelaPrincipal extends JFrame {
 		mnNewMenu.add(itemSair);
 		
 		// Voltar a tela principal
-		JMenuItem itemMenuPrincipal = new JMenuItem("Menu Principal");
+		itemMenuPrincipal = new JMenuItem("Menu Principal");
+		itemMenuPrincipal.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/icon-home.png")));
 		itemMenuPrincipal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -70,7 +75,7 @@ public class JanelaPrincipal extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
-		contentPane.add(panel, "name_100053754431500");
+		contentPane.add(panel, "janelaPrincipal");
 		panel.setLayout(new MigLayout("", "[grow]", "[40.00][][32.00][41.00][36.00]"));
 		
 		//Declaração e atributos do label de título do programa
@@ -92,34 +97,40 @@ public class JanelaPrincipal extends JFrame {
 		panel.add(lblLogoUfcspa, "cell 0 1,alignx center");
 		
 		//Botão de Login
-		JButton btnLogin = new JButton("Logar");
+		btnLogin = new JButton("Login");
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnLogin.addActionListener(new ActionListener() {			
-			public void actionPerformed(ActionEvent e) {				
-				jl = new JanelaLogin();
-				contentPane.add(jl, "telaLogin");
-				CardLayout cl = (CardLayout) contentPane.getLayout();
-	            cl.show(contentPane, "telaLogin");	            
-			}
-		});
 		btnLogin.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/icon-login.png")));
 		panel.add(btnLogin, "cell 0 3,alignx center,aligny center");
 		
 		//Botão de cadastro
-		JButton btnCadastro = new JButton("Cadastrar-se");
-		btnCadastro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				jc = new JanelaCadastro();
-				contentPane.add(jc, "telaCadastro");
-				CardLayout cl = (CardLayout) contentPane.getLayout();
-				cl.show(contentPane, "telaCadastro");
-				
-			}
-		});
+		btnCadastro = new JButton("Cadastrar-se");
 		btnCadastro.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnCadastro.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/icon-cadastro.png")));
 		panel.add(btnCadastro, "cell 0 4,alignx center");
 	}
 
+	public JButton getBtnLogin() {
+		return btnLogin;
+	}
+
+	public void setBtnLogin(JButton btnLogin) {
+		this.btnLogin = btnLogin;
+	}
+
+	public JButton getBtnCadastro() {
+		return btnCadastro;
+	}
+
+	public void setBtnCadastro(JButton btnCadastro) {
+		this.btnCadastro = btnCadastro;
+	}
+
+	public JMenuItem getItemMenuPrincipal() {
+		return itemMenuPrincipal;
+	}
+
+	public void setItemMenuPrincipal(JMenuItem itemMenuPrincipal) {
+		this.itemMenuPrincipal = itemMenuPrincipal;
+	}
+	
 }
