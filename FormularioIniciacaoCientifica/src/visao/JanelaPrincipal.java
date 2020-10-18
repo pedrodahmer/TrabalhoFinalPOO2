@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JTextField;
 
 public class JanelaPrincipal extends JFrame {
 
@@ -29,6 +30,9 @@ public class JanelaPrincipal extends JFrame {
 	private JanelaLogin jl;
 	private JanelaCadastro jc;
 	private JMenuItem itemSair;
+	private JButton btnLogin;
+	private JButton btnCadastro;
+	private JButton btnLogar;
 
 	public JanelaPrincipal() {
 		setTitle("Formul\u00E1rio de inscri\u00E7\u00E3o para IC");
@@ -37,20 +41,15 @@ public class JanelaPrincipal extends JFrame {
 		
 		setResizable(false); // Desabilitar redimensionamento
 		
+		// Definicao do menu bar e itens
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Arquivo");
 		menuBar.add(mnNewMenu);
 		
-		// Sair do programa
 		itemSair = new JMenuItem("Sair");
 		itemSair.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/exit.png")));
-		/*itemSair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});*/
 		mnNewMenu.add(itemSair);
 		
 		// Voltar a tela principal
@@ -64,14 +63,16 @@ public class JanelaPrincipal extends JFrame {
 		});
 		mnNewMenu.add(itemMenuPrincipal);
 		
+		// Definicao do content pane
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
 		
+		// Definicao do painel principal
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
-		contentPane.add(panel, "name_100053754431500");
+		contentPane.add(panel, "panelPrincipal");
 		panel.setLayout(new MigLayout("", "[grow]", "[40.00][][32.00][41.00][36.00]"));
 		
 		//Declaração e atributos do label de título do programa
@@ -93,22 +94,24 @@ public class JanelaPrincipal extends JFrame {
 		panel.add(lblLogoUfcspa, "cell 0 1,alignx center");
 		
 		//Botão de Login
-		JButton btnLogin = new JButton("Logar");
+		btnLogin = new JButton("Login");
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnLogin.addActionListener(new ActionListener() {			
+		/*btnLogin.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {				
+				
 				jl = new JanelaLogin();
 				contentPane.add(jl, "telaLogin");
 				CardLayout cl = (CardLayout) contentPane.getLayout();
 	            cl.show(contentPane, "telaLogin");	            
+			
 			}
-		});
+		});*/
 		btnLogin.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/icon-login.png")));
 		panel.add(btnLogin, "cell 0 3,alignx center,aligny center");
 		
 		//Botão de cadastro
-		JButton btnCadastro = new JButton("Cadastrar-se");
-		btnCadastro.addActionListener(new ActionListener() {
+		btnCadastro = new JButton("Cadastrar-se");
+		/*btnCadastro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				jc = new JanelaCadastro();
@@ -117,10 +120,37 @@ public class JanelaPrincipal extends JFrame {
 				cl.show(contentPane, "telaCadastro");
 				
 			}
-		});
+		});*/
 		btnCadastro.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnCadastro.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/icon-cadastro.png")));
 		panel.add(btnCadastro, "cell 0 4,alignx center");
+		
+		// Painel de Login
+		JPanel paneLogin = new JPanel();
+		contentPane.add(paneLogin, "telaLogin");
+		paneLogin.setLayout(new MigLayout("", "[]", "[][][][][][][][][]"));
+		
+		JLabel lblTituloLogin = new JLabel("LOGIN");
+		paneLogin.add(lblTituloLogin, "cell 0 0");
+		
+		btnLogar = new JButton("Logar");
+		paneLogin.add(btnLogar, "cell 0 8");
+		
+		// Painel de Cadastro
+		JPanel panelCadastro = new JPanel();
+		contentPane.add(panelCadastro, "telaCadastro");
+		panelCadastro.setLayout(new MigLayout("", "[]", "[]"));
+		
+		JLabel lblTituloCadastro = new JLabel("CADASTRO");
+		panelCadastro.add(lblTituloCadastro, "cell 0 0");
+		
+		// Painel do Formulario
+		JPanel panelFormulario = new JPanel();
+		contentPane.add(panelFormulario, "telaFormulario");
+		panelFormulario.setLayout(new MigLayout("", "[]", "[]"));
+		
+		JLabel lblTituloFormulario = new JLabel("FORMULARIO");
+		panelFormulario.add(lblTituloFormulario, "cell 0 0");
 	}
 
 	public JMenuItem getItemSair() {
@@ -129,6 +159,30 @@ public class JanelaPrincipal extends JFrame {
 
 	public void setItemSair(JMenuItem itemSair) {
 		this.itemSair = itemSair;
+	}
+
+	public JButton getBtnLogin() {
+		return btnLogin;
+	}
+
+	public void setBtnLogin(JButton btnLogin) {
+		this.btnLogin = btnLogin;
+	}
+
+	public JButton getBtnCadastro() {
+		return btnCadastro;
+	}
+
+	public void setBtnCadastro(JButton btnCadastro) {
+		this.btnCadastro = btnCadastro;
+	}
+
+	public JButton getBtnLogar() {
+		return btnLogar;
+	}
+
+	public void setBtnLogar(JButton btnLogar) {
+		this.btnLogar = btnLogar;
 	}
 
 }

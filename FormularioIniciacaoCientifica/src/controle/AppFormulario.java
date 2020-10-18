@@ -1,6 +1,7 @@
 package controle;
 
 import visao.JanelaCadastro;
+import visao.JanelaFormulario;
 import visao.JanelaLogin;
 import visao.JanelaPrincipal;
 import visao.JanelaSelecao;
@@ -8,9 +9,14 @@ import visao.JanelaSelecao;
 public class AppFormulario {
 	public static void main(String[] args) {
 		
-		JanelaPrincipal jan = new JanelaPrincipal();
-		ClasseControle cc = new ClasseControle(jan);
+		JanelaPrincipal jp = new JanelaPrincipal();
 		
-		jan.setVisible(true);
+//		JanelaLogin jl = new JanelaLogin();
+//		JanelaCadastro jc = new JanelaCadastro();
+//		JanelaFormulario jf = new JanelaFormulario();
+		
+		ClasseControle cc = new ClasseControle(jp);
+		
+		jp.setVisible(true);
 	}
 }

@@ -9,6 +9,8 @@ import java.awt.Rectangle;
 import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -19,6 +21,7 @@ public class JanelaLogin extends JPanel {
 	private JanelaSelecao js;
 	private JButton btnLogar;
 	private JButton btnLimpar;
+	private JanelaPrincipal jp;
 
 	//construtor da janela de login
 	public JanelaLogin() {
@@ -45,12 +48,27 @@ public class JanelaLogin extends JPanel {
 		add(fieldSenha, "cell 0 6,alignx center");
 		fieldSenha.setColumns(30);
 		
+		// Botao limpar
 		btnLimpar = new JButton("Limpar");
 		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnLimpar.setIcon(new ImageIcon(JanelaLogin.class.getResource("/imagens/limpar.png")));
 		add(btnLimpar, "flowx,cell 0 8,alignx center");
 		
-		btnLogar = new JButton("Logar");
+		// Botao logar
+		btnLogar = new JButton("Entrar");
+		btnLogar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				System.out.println("Aqui");
+				
+				jp = new JanelaPrincipal();
+				js = new JanelaSelecao();
+				jp.getContentPane().add(js, "telaSelecao");
+				CardLayout cl = (CardLayout) jp.getContentPane().getLayout();
+				cl.show(jp.getContentPane(), "telaSelecao");
+				
+			}
+		});
 		btnLogar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnLogar.setIcon(new ImageIcon(JanelaLogin.class.getResource("/imagens/icon-login.png")));
 		add(btnLogar, "cell 0 8,alignx center");		
