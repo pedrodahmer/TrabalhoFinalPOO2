@@ -14,8 +14,9 @@ public class ClasseControle implements ActionListener{
 	private JanelaSelecao js;
 	
 	public ClasseControle(JanelaPrincipal jp) {
-		this.jl = jl;
+		this.jp = jp;
 		
+		this.jp.getItemSair().addActionListener(this);
 	}
 	
 	public ClasseControle() {
@@ -24,7 +25,10 @@ public class ClasseControle implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
+		if(e.getActionCommand().equals("Sair")) {
+			System.exit(0);
+		}
 		
 	}
 	

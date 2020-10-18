@@ -28,6 +28,7 @@ public class JanelaPrincipal extends JFrame {
 	private JPanel contentPane;
 	private JanelaLogin jl;
 	private JanelaCadastro jc;
+	private JMenuItem itemSair;
 
 	public JanelaPrincipal() {
 		setTitle("Formul\u00E1rio de inscri\u00E7\u00E3o para IC");
@@ -43,13 +44,13 @@ public class JanelaPrincipal extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		// Sair do programa
-		JMenuItem itemSair = new JMenuItem("Sair");
+		itemSair = new JMenuItem("Sair");
 		itemSair.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/exit.png")));
-		itemSair.addActionListener(new ActionListener() {
+		/*itemSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
-		});
+		});*/
 		mnNewMenu.add(itemSair);
 		
 		// Voltar a tela principal
@@ -120,6 +121,14 @@ public class JanelaPrincipal extends JFrame {
 		btnCadastro.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnCadastro.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/icon-cadastro.png")));
 		panel.add(btnCadastro, "cell 0 4,alignx center");
+	}
+
+	public JMenuItem getItemSair() {
+		return itemSair;
+	}
+
+	public void setItemSair(JMenuItem itemSair) {
+		this.itemSair = itemSair;
 	}
 
 }
