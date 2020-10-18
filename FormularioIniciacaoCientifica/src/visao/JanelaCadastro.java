@@ -7,15 +7,19 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class JanelaCadastro extends JPanel {
 	private JTextField fieldNomeUsuario;
 	private JTextField fieldSenhaUsuario;
+	private JButton btnLimpar;
+	private JButton btnCadastrar;
 
 	/**
 	 * Create the panel.
 	 */
 	public JanelaCadastro() {
+		setBackground(Color.LIGHT_GRAY);
 		setLayout(new MigLayout("", "[grow]", "[30.00][][30.00][30.00][][30.00][30.00][][30.00][][]"));
 		
 		JLabel lblTituloCadastro = new JLabel("Cadastro");
@@ -39,16 +43,50 @@ public class JanelaCadastro extends JPanel {
 		add(fieldSenhaUsuario, "cell 0 6,alignx center");
 		fieldSenhaUsuario.setColumns(30);
 		
-		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar = new JButton("Limpar");
 		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnLimpar.setIcon(new ImageIcon(JanelaCadastro.class.getResource("/imagens/limpar.png")));
 		add(btnLimpar, "flowx,cell 0 8,alignx center");
 		
-		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setIcon(new ImageIcon(JanelaCadastro.class.getResource("/imagens/icon-cadastro.png")));
 		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		add(btnCadastrar, "cell 0 8,aligny baseline");
 
 	}
+
+	public JTextField getFieldNomeUsuario() {
+		return fieldNomeUsuario;
+	}
+
+	public void setFieldNomeUsuario(JTextField fieldNomeUsuario) {
+		this.fieldNomeUsuario = fieldNomeUsuario;
+	}
+
+	public JTextField getFieldSenhaUsuario() {
+		return fieldSenhaUsuario;
+	}
+
+	public void setFieldSenhaUsuario(JTextField fieldSenhaUsuario) {
+		this.fieldSenhaUsuario = fieldSenhaUsuario;
+	}
+
+	public JButton getBtnLimpar() {
+		return btnLimpar;
+	}
+
+	public void setBtnLimpar(JButton btnLimpar) {
+		this.btnLimpar = btnLimpar;
+	}
+
+	public JButton getBtnCadastrar() {
+		return btnCadastrar;
+	}
+
+	public void setBtnCadastrar(JButton btnCadastrar) {
+		this.btnCadastrar = btnCadastrar;
+	}
+	
+	
 
 }

@@ -29,20 +29,6 @@ public class JanelaPrincipal extends JFrame {
 	private JanelaLogin jl;
 	private JanelaCadastro jc;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					JanelaPrincipal frame = new JanelaPrincipal();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	//Elementos da Janela Principal
 	public JanelaPrincipal() {
 		setTitle("Formul\u00E1rio de inscri\u00E7\u00E3o para IC");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -109,11 +95,11 @@ public class JanelaPrincipal extends JFrame {
 		JButton btnLogin = new JButton("Logar");
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnLogin.addActionListener(new ActionListener() {			
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {				
 				jl = new JanelaLogin();
 				contentPane.add(jl, "telaLogin");
 				CardLayout cl = (CardLayout) contentPane.getLayout();
-	            cl.show(contentPane, "telaLogin");
+	            cl.show(contentPane, "telaLogin");	            
 			}
 		});
 		btnLogin.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/icon-login.png")));
