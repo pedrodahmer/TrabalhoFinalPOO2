@@ -3,25 +3,30 @@ package modelo;
 public class Aluno {
 	
 	private String nome;
-	private String curso;
-	private String instituicao;
 	private String rg;
 	private String cpf;
+	private String email;
+	private String curso;
+	private String instituicao;
 	private String serie;
+	private String planoTrabalho;
 	private int horasSemanais;
+	private String copiaDocumento;
 
 	public Aluno() {}
 
-	public Aluno(String nome, String curso, String instituicao, String rg, String cpf, String serie,
-			int horasSemanais) {
-		super();
+	public Aluno(String nome, String rg, String cpf, String email, String curso, String instituicao, String serie,
+			String planoTrabalho, int horasSemanais, String copiaDocumento) {
 		this.nome = nome;
-		this.curso = curso;
-		this.instituicao = instituicao;
 		this.rg = rg;
 		this.cpf = cpf;
+		this.email = email;
+		this.curso = curso;
+		this.instituicao = instituicao;
 		this.serie = serie;
+		this.planoTrabalho = planoTrabalho;
 		this.horasSemanais = horasSemanais;
+		this.copiaDocumento = copiaDocumento;
 	}
 
 	public String getNome() {
@@ -30,22 +35,6 @@ public class Aluno {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getCurso() {
-		return curso;
-	}
-
-	public void setCurso(String curso) {
-		this.curso = curso;
-	}
-
-	public String getInstituicao() {
-		return instituicao;
-	}
-
-	public void setInstituicao(String instituicao) {
-		this.instituicao = instituicao;
 	}
 
 	public String getRg() {
@@ -64,12 +53,44 @@ public class Aluno {
 		this.cpf = cpf;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCurso() {
+		return curso;
+	}
+
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+
+	public String getInstituicao() {
+		return instituicao;
+	}
+
+	public void setInstituicao(String instituicao) {
+		this.instituicao = instituicao;
+	}
+
 	public String getSerie() {
 		return serie;
 	}
 
 	public void setSerie(String serie) {
 		this.serie = serie;
+	}
+
+	public String getPlanoTrabalho() {
+		return planoTrabalho;
+	}
+
+	public void setPlanoTrabalho(String planoTrabalho) {
+		this.planoTrabalho = planoTrabalho;
 	}
 
 	public int getHorasSemanais() {
@@ -79,7 +100,13 @@ public class Aluno {
 	public void setHorasSemanais(int horasSemanais) {
 		this.horasSemanais = horasSemanais;
 	}
-	
-	// Aqui agora vai
+
+	public String getCopiaDocumento() {
+		return copiaDocumento;
+	}
+
+	public void setCopiaDocumento(String copiaDocumento) {
+		this.copiaDocumento = copiaDocumento;
+	}
 	
 }
