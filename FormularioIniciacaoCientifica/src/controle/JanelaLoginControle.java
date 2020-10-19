@@ -2,6 +2,8 @@ package controle;
 
 import java.awt.CardLayout;
 
+import dao.UsuarioDAO;
+import modelo.Usuario;
 import visao.JanelaExecucao;
 import visao.JanelaLogin;
 import visao.JanelaPrincipal;
@@ -17,8 +19,21 @@ public class JanelaLoginControle {
 	
 	//Realiza o login do usuário, acionando o método de conexão mysql para verificar se usuário
 	//esta presente no banco de dados
-	public boolean handlesLogin(JanelaLogin jl) {		
-		return true;
+	public boolean handlesLogin(JanelaLogin jl, UsuarioDAO usuarioDao) {		
+		
+		String senha = jl.getFieldSenha().getText();
+		
+		Usuario u = new Usuario(null, senha);
+		
+		boolean resultado = usuarioDao.autenticaUsuario(u);
+		
+		if(resultado) {
+			System.out.println("usuario encontrado!");
+			return true;
+		}
+		
+		System.out.println("nao encontrou");
+		return false;
 	}
 	
 	public void handlesLimparLogin(JanelaLogin jl) {

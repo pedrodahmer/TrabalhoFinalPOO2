@@ -68,7 +68,7 @@ public class ClasseControle implements ActionListener{
 			jlc.handlesAbrirLogin(jl, jp);
 		}
 		else if (e.getActionCommand().equals("Logar")) {
-			jlc.handlesLogin(jl);
+			jlc.handlesLogin(jl, usuarioDao);
 			jec.handlesAbrirExecucao(je, jp);
 		}
 		else if (e.getActionCommand().equals("limpar-login")) {
