@@ -21,6 +21,9 @@ import java.awt.Font;
 public class JanelaExecucao extends JFrame {
 
 	private JPanel contentPane;
+	private JMenuItem itemNovoForm;
+	private JMenuItem itemMenuPrincipal;
+	private JMenuItem itemSair;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -46,15 +49,16 @@ public class JanelaExecucao extends JFrame {
 		JMenu mnArquivo = new JMenu("Arquivo");
 		menuBar.add(mnArquivo);
 		
-		JMenuItem itemNovoForm = new JMenuItem("Realizar nova inscri\u00E7\u00E3o");
+		itemNovoForm = new JMenuItem("Realizar nova inscri\u00E7\u00E3o");
+		itemNovoForm.setActionCommand("novoForm");
 		itemNovoForm.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/icon-inscricao.png")));
 		mnArquivo.add(itemNovoForm);
 		
-		JMenuItem itemMenuPrincipal = new JMenuItem("Menu principal");
+		itemMenuPrincipal = new JMenuItem("Menu principal");
 		itemMenuPrincipal.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/icon-home.png")));
 		mnArquivo.add(itemMenuPrincipal);
 		
-		JMenuItem itemSair = new JMenuItem("Sair");
+		itemSair = new JMenuItem("Sair");
 		itemSair.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/exit.png")));
 		mnArquivo.add(itemSair);
 		contentPane = new JPanel();
@@ -82,4 +86,27 @@ public class JanelaExecucao extends JFrame {
 		contentPane.add(lblNomeUser, "cell 1 0");
 	}
 
+	public JMenuItem getItemNovoForm() {
+		return itemNovoForm;
+	}
+
+	public void setItemNovoForm(JMenuItem itemNovoForm) {
+		this.itemNovoForm = itemNovoForm;
+	}
+
+	public JMenuItem getItemMenuPrincipal() {
+		return itemMenuPrincipal;
+	}
+
+	public void setItemMenuPrincipal(JMenuItem itemMenuPrincipal) {
+		this.itemMenuPrincipal = itemMenuPrincipal;
+	}
+
+	public JMenuItem getItemSair() {
+		return itemSair;
+	}
+
+	public void setItemSair(JMenuItem itemSair) {
+		this.itemSair = itemSair;
+	}
 }

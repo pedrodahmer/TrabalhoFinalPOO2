@@ -10,7 +10,6 @@ public class JanelaLoginControle {
 	
 	//Método que realiza a troca de tela para a tela de login
 	public void handlesAbrirLogin(JanelaLogin jl, JanelaPrincipal jp) {
-		jl = new JanelaLogin();
 		jp.getContentPane().add(jl, "telaLogin");
 		CardLayout cl = (CardLayout) jp.getContentPane().getLayout();
         cl.show(jp.getContentPane(), "telaLogin");
@@ -20,5 +19,10 @@ public class JanelaLoginControle {
 	//esta presente no banco de dados
 	public boolean handlesLogin(JanelaLogin jl) {		
 		return true;
+	}
+	
+	public void handlesLimparLogin(JanelaLogin jl) {
+		jl.getFieldUsuario().setText("");
+		jl.getFieldSenha().setText("");
 	}
 }

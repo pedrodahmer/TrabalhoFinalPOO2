@@ -44,6 +44,7 @@ public class JanelaCadastro extends JPanel {
 		fieldSenhaUsuario.setColumns(30);
 		
 		btnLimpar = new JButton("Limpar");
+		btnLimpar.setActionCommand("limpar-cadastro");
 		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnLimpar.setIcon(new ImageIcon(JanelaCadastro.class.getResource("/imagens/limpar.png")));
 		add(btnLimpar, "flowx,cell 0 8,alignx center");
