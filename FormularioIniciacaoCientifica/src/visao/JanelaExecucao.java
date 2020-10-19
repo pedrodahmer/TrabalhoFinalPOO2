@@ -55,10 +55,12 @@ public class JanelaExecucao extends JFrame {
 		mnArquivo.add(itemNovoForm);
 		
 		itemMenuPrincipal = new JMenuItem("Menu principal");
+		itemMenuPrincipal.setActionCommand("menuPrincipal");
 		itemMenuPrincipal.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/icon-home.png")));
 		mnArquivo.add(itemMenuPrincipal);
 		
 		itemSair = new JMenuItem("Sair");
+		itemSair.setActionCommand("sair");
 		itemSair.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/exit.png")));
 		mnArquivo.add(itemSair);
 		contentPane = new JPanel();

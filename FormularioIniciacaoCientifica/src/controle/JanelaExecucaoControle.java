@@ -5,13 +5,17 @@ import visao.JanelaPrincipal;
 
 public class JanelaExecucaoControle {
 	
-	public void handlesAbrirExecucao(JanelaExecucao je, JanelaPrincipal jp){
-//<<<<<<< HEAD
-		//je = new JanelaExecucao();
-//=======
-//>>>>>>> branch 'master' of https://github.com/pedrodahmer/TrabalhoFinalPOO2.git
+	public void handlesAbrirExecucao(JanelaExecucao je){
 		je.setVisible(true);
-		jp.dispose();
+	}
+	
+	public void handlesMenuPrincipal(JanelaPrincipal jp, JanelaExecucao je) {
+		jp.setVisible(true);
+		je.dispose();
+	}
+	
+	public void handlesSair() {
+		System.exit(0);
 	}
 	
 }

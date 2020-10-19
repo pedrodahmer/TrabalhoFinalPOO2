@@ -41,6 +41,8 @@ public class ClasseControle implements ActionListener{
 		this.jc.getBtnLimpar().addActionListener(this);
 		
 		this.je.getItemNovoForm().addActionListener(this);
+		this.je.getItemMenuPrincipal().addActionListener(this);
+		this.je.getItemSair().addActionListener(this);
 	}
 	
 	//Instanciando as classes que controlam as telas de visão
@@ -68,8 +70,11 @@ public class ClasseControle implements ActionListener{
 			jlc.handlesAbrirLogin(jl, jp);
 		}
 		else if (e.getActionCommand().equals("Logar")) {
-			jlc.handlesLogin(jl, usuarioDao);
-			jec.handlesAbrirExecucao(je, jp);
+			boolean resultado = jlc.handlesLogin(jl, usuarioDao);
+			if(resultado == true) {
+				jec.handlesAbrirExecucao(je); 
+			}
+			jp.dispose();			
 		}
 		else if (e.getActionCommand().equals("limpar-login")) {
 			jlc.handlesLimparLogin(jl);	
@@ -87,6 +92,14 @@ public class ClasseControle implements ActionListener{
 		}
 		
 		//chamada dos métodos da tela de execução
+		else if(e.getActionCommand().equals("menuPrincipal")) {
+			jec.handlesMenuPrincipal(jp, je);
+		}
+		else if(e.getActionCommand().equals("sair")) {
+			jec.handlesSair();
+		}
+		
+		//chamada dos métodos da tela de formulário
 		else if(e.getActionCommand().equals("novoForm")) {
 			jfc.handlesAbrirJanelaFormulario(je, jf);
 		}
