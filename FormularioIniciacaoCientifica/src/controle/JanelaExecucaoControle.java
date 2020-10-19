@@ -6,8 +6,8 @@ import visao.JanelaPrincipal;
 public class JanelaExecucaoControle {
 	
 	public void handlesAbrirExecucao(JanelaExecucao je, JanelaPrincipal jp){
-		je = new JanelaExecucao();
 		je.setVisible(true);
+		jp.dispose();
 	}
 	
 }

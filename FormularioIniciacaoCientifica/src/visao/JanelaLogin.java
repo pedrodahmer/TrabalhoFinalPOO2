@@ -45,6 +45,7 @@ public class JanelaLogin extends JPanel {
 		fieldSenha.setColumns(30);
 		
 		btnLimpar = new JButton("Limpar");
+		btnLimpar.setActionCommand("limpar-login");
 		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnLimpar.setIcon(new ImageIcon(JanelaLogin.class.getResource("/imagens/limpar.png")));
 		add(btnLimpar, "flowx,cell 0 8,alignx center");

@@ -9,7 +9,6 @@ public class JanelaCadastroControle {
 
 	//Método que realiza a troca de tela para a tela de cadastro
 	public void handlesAbrirCadastro(JanelaCadastro jc, JanelaPrincipal jp) {
-		jc = new JanelaCadastro();
 		jp.getContentPane().add(jc, "telaCadastro");
 		CardLayout cl = (CardLayout) jp.getContentPane().getLayout();
 		cl.show(jp.getContentPane(), "telaCadastro");
@@ -19,6 +18,11 @@ public class JanelaCadastroControle {
 	//acionando o método de conexão mysql
 	public boolean handlesCadastro(JanelaCadastro jc) {
 		return true;
+	}
+	
+	public void handlesLimparCadastro(JanelaCadastro jc) {
+		jc.getFieldNomeUsuario().setText("");
+		jc.getFieldSenhaUsuario().setText("");
 	}
 	
 }
