@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import dao.UsuarioDAO;
 import visao.JanelaCadastro;
 import visao.JanelaExecucao;
 import visao.JanelaFormulario;
@@ -18,12 +19,16 @@ public class ClasseControle implements ActionListener{
 	private JanelaExecucao je;
 	private JanelaFormulario jf;
 	
+	private UsuarioDAO usuarioDao;
+	
 	public ClasseControle(JanelaPrincipal jp, JanelaLogin jl, JanelaCadastro jc, JanelaExecucao je, JanelaFormulario jf) {
 		this.jl = jl;
 		this.jp = jp;
 		this.jc = jc;
 		this.je = je;
 		this.jf = jf;
+		
+		this.usuarioDao = new UsuarioDAO();
 		
 		this.jp.getBtnLogin().addActionListener(this);
 		this.jp.getBtnCadastro().addActionListener(this);
@@ -76,6 +81,9 @@ public class ClasseControle implements ActionListener{
 		}
 		else if(e.getActionCommand().equals("limpar-cadastro")) {
 			jcc.handlesLimparCadastro(jc);;
+		}
+		else if(e.getActionCommand().equals("Cadastrar")) {
+			jcc.handlesCadastro(jc, usuarioDao);
 		}
 		
 		//chamada dos métodos da tela de execução

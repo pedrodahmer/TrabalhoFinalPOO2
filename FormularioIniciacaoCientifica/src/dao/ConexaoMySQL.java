@@ -17,10 +17,10 @@ public class ConexaoMySQL {
 	public static void abrirConexao() {
 		
 		String serverName = "localhost";
-		String database = "meubanco";
+		String database = "trabalho_final_poo";
 		String url = "jdbc:mysql://" + serverName + ":3306/" + database + "?useTimezone=true&serverTimezone=UTC";
-		String userName = "rodrigo"; // Alterar usuario do BD aqui
-		String password = "root"; // Alterar senha aqui
+		String userName = "rodrigo";
+		String password = "root";
 		
 		try {
 			con = DriverManager.getConnection(url, userName, password);
@@ -55,6 +55,14 @@ public class ConexaoMySQL {
 		System.out.println(status);
 	}
 	
+	public static Connection getCon() {
+		return con;
+	}
+
+	public static void setCon(Connection con) {
+		ConexaoMySQL.con = con;
+	}
+
 	public static void main(String[] args) {
 		
 		ConexaoMySQL.abrirConexao();
