@@ -50,6 +50,14 @@ public class JanelaLogin extends JPanel {
 		add(btnLimpar, "flowx,cell 0 8,alignx center");
 		
 		btnLogar = new JButton("Logar");
+		btnLogar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JanelaExecucao je = new JanelaExecucao();
+				je.setVisible(true);
+				
+			}
+		});
 		btnLogar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnLogar.setIcon(new ImageIcon(JanelaLogin.class.getResource("/imagens/icon-login.png")));
 		add(btnLogar, "cell 0 8,alignx center");		
