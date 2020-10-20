@@ -6,6 +6,8 @@ import javax.swing.JTabbedPane;
 import java.awt.Color;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
@@ -83,6 +85,7 @@ public class JanelaFormulario extends JPanel {
 		rdbtnUFCSPA.setBackground(Color.LIGHT_GRAY);
 		rdbtnUFCSPA.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/icon-ufcspa-quadrado.png")));
 		grupoInstituicao.add(rdbtnUFCSPA);
+		rdbtnUFCSPA.setSelected(true);
 		pnlDadosAluno.add(rdbtnUFCSPA, "cell 0 3");
 		
 		rdbtnOutra = new JRadioButton("Outra");
@@ -588,6 +591,13 @@ public class JanelaFormulario extends JPanel {
 		this.btnAnexarHistEscolar = btnAnexarHistEscolar;
 	}
 	
-	
+	// Caixas de dialogo
+	public void avisoDoc(boolean sinal) {
+		
+		if(sinal) {
+			JOptionPane.showMessageDialog(this, "Documento anexado!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+		}
+		
+	}
 	
 }

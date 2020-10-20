@@ -5,9 +5,11 @@ import java.awt.CardLayout;
 import javax.swing.JFileChooser;
 
 import dao.AlunoDAO;
+import dao.InscricaoDAO;
 import dao.OrientadorDAO;
 import dao.ProjetoDAO;
 import modelo.Aluno;
+import modelo.Inscricao;
 import modelo.Orientador;
 import modelo.Projeto;
 import visao.JanelaExecucao;
@@ -23,6 +25,9 @@ public class JanelaFormularioControle {
 	private AlunoDAO alunoDao = new AlunoDAO();
 	private ProjetoDAO projetoDao = new ProjetoDAO();
 	private OrientadorDAO orientadorDao = new OrientadorDAO();
+	private InscricaoDAO inscricaoDao = new InscricaoDAO();
+	
+	private Inscricao inscricao = new Inscricao();
 	
 	public void handlesAbrirJanelaFormulario(JanelaExecucao je, JanelaFormulario jf) {
 		je.setContentPane(jf);
@@ -49,6 +54,8 @@ public class JanelaFormularioControle {
 			}
 			
 		}
+		
+		jf.avisoDoc(true);
 		
 		return true;
 	}
@@ -86,9 +93,9 @@ public class JanelaFormularioControle {
 			return false;
 		}
 		
-		alunoDao.cadastrarAluno(aluno);
-		projetoDao.cadastrarProjeto(projeto);
-		orientadorDao.cadastrarOrientador(orientador);
+		alunoDao.cadastrarAluno(aluno, inscricaoDao);
+		orientadorDao.cadastrarOrientador(orientador, inscricaoDao);
+		projetoDao.cadastrarProjeto(projeto, inscricaoDao);
 		
 		return true;
 	}

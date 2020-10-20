@@ -54,6 +54,9 @@ public class JanelaExecucao extends JFrame {
 		itemNovoForm.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/icon-inscricao.png")));
 		mnArquivo.add(itemNovoForm);
 		
+		JMenuItem itemGerenciamento = new JMenuItem("Gerenciar Inscri\u00E7\u00F5es");
+		mnArquivo.add(itemGerenciamento);
+		
 		itemMenuPrincipal = new JMenuItem("Menu principal");
 		itemMenuPrincipal.setActionCommand("menuPrincipal");
 		itemMenuPrincipal.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/icon-home.png")));
