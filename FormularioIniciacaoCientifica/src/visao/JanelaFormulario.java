@@ -235,11 +235,12 @@ public class JanelaFormulario extends JPanel {
 		fieldLocalProjeto.setColumns(10);
 		pnlDadosProjeto.add(fieldLocalProjeto, "cell 0 6 2 1,growx");
 		
-		JLabel lblFaseProjeto = new JLabel("Plano de trabalho:");
+		JLabel lblFaseProjeto = new JLabel("Fase de projeto:");
 		lblFaseProjeto.setFont(new Font("Arial", Font.BOLD, 13));
 		pnlDadosProjeto.add(lblFaseProjeto, "flowx,cell 0 7");
 		
 		rdbtnFaseInicial = new JRadioButton("Inicial");
+		rdbtnFaseInicial.setSelected(true);
 		rdbtnFaseInicial.setBackground(Color.LIGHT_GRAY);
 		grupoFaseProjeto.add(rdbtnFaseInicial);
 		pnlDadosProjeto.add(rdbtnFaseInicial, "cell 0 7");

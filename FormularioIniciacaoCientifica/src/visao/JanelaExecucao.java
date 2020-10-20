@@ -24,6 +24,7 @@ public class JanelaExecucao extends JFrame {
 	private JMenuItem itemNovoForm;
 	private JMenuItem itemMenuPrincipal;
 	private JMenuItem itemSair;
+	private JLabel lblNomeUser;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -86,7 +87,7 @@ public class JanelaExecucao extends JFrame {
 		lblBemVindo.setFont(new Font("Arial", Font.BOLD, 19));
 		contentPane.add(lblBemVindo, "flowx,cell 1 0");
 		
-		JLabel lblNomeUser = new JLabel("Pedrao");
+		lblNomeUser = new JLabel("Pedrao");
 		lblNomeUser.setFont(new Font("Arial", Font.BOLD, 19));
 		contentPane.add(lblNomeUser, "cell 1 0");
 	}
@@ -113,5 +114,13 @@ public class JanelaExecucao extends JFrame {
 
 	public void setItemSair(JMenuItem itemSair) {
 		this.itemSair = itemSair;
+	}
+
+	public JLabel getLblNomeUser() {
+		return lblNomeUser;
+	}
+
+	public void setLblNomeUser(JLabel lblNomeUser) {
+		this.lblNomeUser = lblNomeUser;
 	}
 }

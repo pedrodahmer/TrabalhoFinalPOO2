@@ -27,6 +27,9 @@ public class JanelaLoginControle {
 		
 		boolean resultado = usuarioDao.autenticaUsuario(u);
 		
+		jl.getFieldUsuario().setText("");
+		jl.getFieldSenha().setText("");
+		
 		if(resultado) {
 			System.out.println("usuario encontrado!");
 			return true;

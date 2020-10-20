@@ -26,6 +26,9 @@ public class JanelaCadastroControle {
 		
 		boolean resultado = usuarioDao.cadastraUsuario(u);
 		
+		jc.getFieldNomeUsuario().setText("");
+		jc.getFieldSenhaUsuario().setText("");
+		
 		if(resultado) {
 			System.out.println("OK!");
 			return true;
