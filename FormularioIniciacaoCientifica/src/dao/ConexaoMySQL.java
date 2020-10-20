@@ -17,7 +17,7 @@ public class ConexaoMySQL {
 	public static void abrirConexao() {
 		
 		String serverName = "localhost";
-		String database = "meubanco";
+		String database = "trabalho_final_poo";
 		String url = "jdbc:mysql://" + serverName + ":3306/" + database + "?useTimezone=true&serverTimezone=UTC";
 		String userName = "teste";
 		String password = "root";

@@ -12,11 +12,12 @@ public class Aluno {
 	private String planoTrabalho;
 	private int horasSemanais;
 	private String copiaDocumento;
+	private String histEscolar;
 
 	public Aluno() {}
 
 	public Aluno(String nome, String rg, String cpf, String email, String curso, String instituicao, String serie,
-			String planoTrabalho, int horasSemanais, String copiaDocumento) {
+			String planoTrabalho, int horasSemanais, String copiaDocumento, String histEscolar) {
 		this.nome = nome;
 		this.rg = rg;
 		this.cpf = cpf;
@@ -27,6 +28,7 @@ public class Aluno {
 		this.planoTrabalho = planoTrabalho;
 		this.horasSemanais = horasSemanais;
 		this.copiaDocumento = copiaDocumento;
+		this.histEscolar = histEscolar;
 	}
 
 	public String getNome() {
@@ -107,6 +109,14 @@ public class Aluno {
 
 	public void setCopiaDocumento(String copiaDocumento) {
 		this.copiaDocumento = copiaDocumento;
+	}
+
+	public String getHistEscolar() {
+		return histEscolar;
+	}
+
+	public void setHistEscolar(String histEscolar) {
+		this.histEscolar = histEscolar;
 	}
 	
 }

@@ -22,7 +22,7 @@ public class JanelaFormulario extends JPanel {
 	private JRadioButton rdbtnUFCSPA;
 	private JRadioButton rdbtnOutra;
 	private JLabel lblInstituicao;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private ButtonGroup grupoInstituicao = new ButtonGroup();
 	private JTextField fieldEmailAluno;
 	private JTextField fieldCursoAluno;
 	private JTextField fieldSerieAluno;
@@ -33,14 +33,14 @@ public class JanelaFormulario extends JPanel {
 	private JTextField fieldTituloProjeto;
 	private JTextField fieldGrupoPesquisa;
 	private JTextField fieldLocalProjeto;
-	private JRadioButton rdbtnFaseFinal ,rdbtnFaseIntermediaria, rdbtnFaseInicial;
+	private JRadioButton rdbtnFaseFinal, rdbtnFaseIntermediaria, rdbtnFaseInicial;
 	private JButton btnAnexarPlano, btnAnexarParecer;
-	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
+	private ButtonGroup grupoFaseProjeto = new ButtonGroup();
 	private JLabel lblTituloDadosOrientador;
 	private JLabel lblNomeOrientador;
 	private JTextField fieldNomeOrientador;
 	private JLabel lblDepartamentoOrientador;
-	private JTextField fileldDepartamentoOrientador;
+	private JTextField fieldDepartamentoOrientador;
 	private JLabel lblEmailOrientador;
 	private JTextField fieldEmailOrientador;
 	private JLabel lblRamalOrientador;
@@ -48,6 +48,7 @@ public class JanelaFormulario extends JPanel {
 	private JLabel lblTelefoneOrientador;
 	private JTextField fieldCelularOrientador;
 	private JButton btnFinalizar;
+	private JButton btnAnexarHistEscolar;
 
 	public JanelaFormulario() {
 		setLayout(new BorderLayout(0, 0));
@@ -81,12 +82,12 @@ public class JanelaFormulario extends JPanel {
 		rdbtnUFCSPA = new JRadioButton("UFCPSA");
 		rdbtnUFCSPA.setBackground(Color.LIGHT_GRAY);
 		rdbtnUFCSPA.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/icon-ufcspa-quadrado.png")));
-		buttonGroup.add(rdbtnUFCSPA);
+		grupoInstituicao.add(rdbtnUFCSPA);
 		pnlDadosAluno.add(rdbtnUFCSPA, "cell 0 3");
 		
 		rdbtnOutra = new JRadioButton("Outra");
 		rdbtnOutra.setBackground(Color.LIGHT_GRAY);
-		buttonGroup.add(rdbtnOutra);
+		grupoInstituicao.add(rdbtnOutra);
 		pnlDadosAluno.add(rdbtnOutra, "cell 0 3");
 		
 		JLabel lblEmailAluno = new JLabel("Email:");
@@ -137,9 +138,10 @@ public class JanelaFormulario extends JPanel {
 		pnlDadosAluno.add(fieldCargaHoraria, "cell 0 7");
 		fieldCargaHoraria.setColumns(10);
 		
-		btnAnexarDocs = new JButton("Anexar documentos adicionais");
+		btnAnexarDocs = new JButton("Anexar RG e CPF");
+		btnAnexarDocs.setActionCommand("anexarDocs");
 		btnAnexarDocs.setVisible(false);
-		pnlDadosAluno.add(btnAnexarDocs, "cell 1 7,alignx center");
+		pnlDadosAluno.add(btnAnexarDocs, "flowx,cell 1 7,growx");
 		
 		JLabel lblDocsAdicionais = new JLabel("(Hist\u00F3rico escolar, RG E CPF)");
 		lblDocsAdicionais.setVisible(false);
@@ -150,6 +152,9 @@ public class JanelaFormulario extends JPanel {
 		pnlDadosAluno.add(fieldInstituicao, "cell 0 3,growx");
 		fieldInstituicao.setColumns(10);
 		
+		btnAnexarHistEscolar = new JButton("Anexar Hist\u00F3rico Escolar");
+		pnlDadosAluno.add(btnAnexarHistEscolar, "cell 1 7,growx");
+		
 		rdbtnUFCSPA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnUFCSPA.isSelected()) {
@@ -157,6 +162,7 @@ public class JanelaFormulario extends JPanel {
 					fieldInstituicao.setBackground(Color.LIGHT_GRAY);
 					
 					btnAnexarDocs.setVisible(false);
+					btnAnexarHistEscolar.setVisible(false);
 					lblDocsAdicionais.setVisible(false);
 				}
 			}
@@ -169,6 +175,7 @@ public class JanelaFormulario extends JPanel {
 					fieldInstituicao.setBackground(Color.WHITE);
 					
 					btnAnexarDocs.setVisible(true);
+					btnAnexarHistEscolar.setVisible(true);
 					lblDocsAdicionais.setVisible(true);
 				}
 			}
@@ -206,6 +213,7 @@ public class JanelaFormulario extends JPanel {
 		pnlDadosProjeto.add(lblParecerProjeto, "flowx,cell 0 4, spanx 2");
 		
 		btnAnexarParecer = new JButton("Anexar documento");
+		btnAnexarParecer.setActionCommand("anexarParecer");
 		pnlDadosProjeto.add(btnAnexarParecer, "cell 0 4 2 1,grow");
 		
 		JLabel lblPlanoTrabalho = new JLabel("Plano de trabalho:");
@@ -213,6 +221,7 @@ public class JanelaFormulario extends JPanel {
 		pnlDadosProjeto.add(lblPlanoTrabalho, "flowx,cell 0 5");
 		
 		btnAnexarPlano = new JButton("Anexar documento");
+		btnAnexarPlano.setActionCommand("anexarPlanoTrabalho");
 		pnlDadosProjeto.add(btnAnexarPlano, "cell 0 5,growx");
 		
 		JLabel lblLocalProjeto = new JLabel("Unidade (Depto, Lab., etc):");
@@ -229,17 +238,17 @@ public class JanelaFormulario extends JPanel {
 		
 		rdbtnFaseInicial = new JRadioButton("Inicial");
 		rdbtnFaseInicial.setBackground(Color.LIGHT_GRAY);
-		buttonGroup_1.add(rdbtnFaseInicial);
+		grupoFaseProjeto.add(rdbtnFaseInicial);
 		pnlDadosProjeto.add(rdbtnFaseInicial, "cell 0 7");
 		
 		rdbtnFaseIntermediaria = new JRadioButton("Intermedi\u00E1ria");
 		rdbtnFaseIntermediaria.setBackground(Color.LIGHT_GRAY);
-		buttonGroup_1.add(rdbtnFaseIntermediaria);
+		grupoFaseProjeto.add(rdbtnFaseIntermediaria);
 		pnlDadosProjeto.add(rdbtnFaseIntermediaria, "cell 0 7");
 		
 		rdbtnFaseFinal = new JRadioButton("Final");
 		rdbtnFaseFinal.setBackground(Color.LIGHT_GRAY);
-		buttonGroup_1.add(rdbtnFaseFinal);
+		grupoFaseProjeto.add(rdbtnFaseFinal);
 		pnlDadosProjeto.add(rdbtnFaseFinal, "cell 0 7");
 		
 		JPanel pnlDadosProf = new JPanel();
@@ -265,9 +274,9 @@ public class JanelaFormulario extends JPanel {
 		lblDepartamentoOrientador.setFont(new Font("Arial", Font.BOLD, 13));
 		pnlDadosProf.add(lblDepartamentoOrientador, "flowx,cell 0 3");
 		
-		fileldDepartamentoOrientador = new JTextField();
-		pnlDadosProf.add(fileldDepartamentoOrientador, "cell 0 3,growx");
-		fileldDepartamentoOrientador.setColumns(10);
+		fieldDepartamentoOrientador = new JTextField();
+		pnlDadosProf.add(fieldDepartamentoOrientador, "cell 0 3,growx");
+		fieldDepartamentoOrientador.setColumns(10);
 		
 		lblEmailOrientador = new JLabel("Email:");
 		lblEmailOrientador.setFont(new Font("Arial", Font.BOLD, 13));
@@ -294,6 +303,7 @@ public class JanelaFormulario extends JPanel {
 		fieldCelularOrientador.setColumns(10);
 		
 		btnFinalizar = new JButton("Finalizar inscri\u00E7\u00E3o");
+		btnFinalizar.setActionCommand("finalizarInscricao");
 		pnlDadosProf.add(btnFinalizar, "cell 0 6,growx, spanx 2");
 		
 	}
@@ -466,12 +476,12 @@ public class JanelaFormulario extends JPanel {
 		this.fieldNomeOrientador = fieldNomeOrientador;
 	}
 
-	public JTextField getFileldDepartamentoOrientador() {
-		return fileldDepartamentoOrientador;
+	public JTextField getFieldDepartamentoOrientador() {
+		return fieldDepartamentoOrientador;
 	}
 
-	public void setFileldDepartamentoOrientador(JTextField fileldDepartamentoOrientador) {
-		this.fileldDepartamentoOrientador = fileldDepartamentoOrientador;
+	public void setFieldDepartamentoOrientador(JTextField fileldDepartamentoOrientador) {
+		this.fieldDepartamentoOrientador = fileldDepartamentoOrientador;
 	}
 
 	public JTextField getFieldEmailOrientador() {
@@ -505,4 +515,79 @@ public class JanelaFormulario extends JPanel {
 	public void setBtnFinalizar(JButton btnFinalizar) {
 		this.btnFinalizar = btnFinalizar;
 	}
+
+	public ButtonGroup getGrupoInstituicao() {
+		return grupoInstituicao;
+	}
+
+	public void setGrupoInstituicao(ButtonGroup grupoInstituicao) {
+		this.grupoInstituicao = grupoInstituicao;
+	}
+
+	public ButtonGroup getGrupoFaseProjeto() {
+		return grupoFaseProjeto;
+	}
+
+	public void setGrupoFaseProjeto(ButtonGroup grupoFaseProjeto) {
+		this.grupoFaseProjeto = grupoFaseProjeto;
+	}
+
+	public JLabel getLblTituloDadosOrientador() {
+		return lblTituloDadosOrientador;
+	}
+
+	public void setLblTituloDadosOrientador(JLabel lblTituloDadosOrientador) {
+		this.lblTituloDadosOrientador = lblTituloDadosOrientador;
+	}
+
+	public JLabel getLblNomeOrientador() {
+		return lblNomeOrientador;
+	}
+
+	public void setLblNomeOrientador(JLabel lblNomeOrientador) {
+		this.lblNomeOrientador = lblNomeOrientador;
+	}
+
+	public JLabel getLblDepartamentoOrientador() {
+		return lblDepartamentoOrientador;
+	}
+
+	public void setLblDepartamentoOrientador(JLabel lblDepartamentoOrientador) {
+		this.lblDepartamentoOrientador = lblDepartamentoOrientador;
+	}
+
+	public JLabel getLblEmailOrientador() {
+		return lblEmailOrientador;
+	}
+
+	public void setLblEmailOrientador(JLabel lblEmailOrientador) {
+		this.lblEmailOrientador = lblEmailOrientador;
+	}
+
+	public JLabel getLblRamalOrientador() {
+		return lblRamalOrientador;
+	}
+
+	public void setLblRamalOrientador(JLabel lblRamalOrientador) {
+		this.lblRamalOrientador = lblRamalOrientador;
+	}
+
+	public JLabel getLblTelefoneOrientador() {
+		return lblTelefoneOrientador;
+	}
+
+	public void setLblTelefoneOrientador(JLabel lblTelefoneOrientador) {
+		this.lblTelefoneOrientador = lblTelefoneOrientador;
+	}
+
+	public JButton getBtnAnexarHistEscolar() {
+		return btnAnexarHistEscolar;
+	}
+
+	public void setBtnAnexarHistEscolar(JButton btnAnexarHistEscolar) {
+		this.btnAnexarHistEscolar = btnAnexarHistEscolar;
+	}
+	
+	
+	
 }

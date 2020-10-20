@@ -6,11 +6,11 @@ public class Orientador {
 	private String departamento;
 	private int ramal;
 	private String email;
-	private int telefoneCelular;
+	private String telefoneCelular;
 	
 	public Orientador() {}
 
-	public Orientador(String nome, String departamento, int ramal, String email, int telefoneCelular) {
+	public Orientador(String nome, String departamento, int ramal, String email, String telefoneCelular) {
 		super();
 		this.nome = nome;
 		this.departamento = departamento;
@@ -51,11 +51,11 @@ public class Orientador {
 		this.email = email;
 	}
 
-	public int getTelefoneCelular() {
+	public String getTelefoneCelular() {
 		return telefoneCelular;
 	}
 
-	public void setTelefoneCelular(int telefoneCelular) {
+	public void setTelefoneCelular(String telefoneCelular) {
 		this.telefoneCelular = telefoneCelular;
 	}
 	

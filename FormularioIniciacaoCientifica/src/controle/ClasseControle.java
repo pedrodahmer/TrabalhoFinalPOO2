@@ -43,6 +43,11 @@ public class ClasseControle implements ActionListener{
 		this.je.getItemNovoForm().addActionListener(this);
 		this.je.getItemMenuPrincipal().addActionListener(this);
 		this.je.getItemSair().addActionListener(this);
+		
+		this.jf.getBtnAnexarParecer().addActionListener(this);
+		this.jf.getBtnAnexarDocs().addActionListener(this);
+		this.jf.getBtnAnexarPlano().addActionListener(this);
+		this.jf.getBtnFinalizar().addActionListener(this);
 	}
 	
 	//Instanciando as classes que controlam as telas de visão
@@ -102,6 +107,22 @@ public class ClasseControle implements ActionListener{
 		//chamada dos métodos da tela de formulário
 		else if(e.getActionCommand().equals("novoForm")) {
 			jfc.handlesAbrirJanelaFormulario(je, jf);
+		} 
+		else if(e.getActionCommand().equals("anexarDocs")) {
+			jfc.handlesAnexarArquivos(jf, "docs");
+		} 
+		else if(e.getActionCommand().equals("anexarParecer")) {
+			jfc.handlesAnexarArquivos(jf, "parecer");
+		} 
+		else if(e.getActionCommand().equals("anexarPlanoTrabalho")) {
+			jfc.handlesAnexarArquivos(jf, "planoTrabalho");
+		} 
+		else if(e.getActionCommand().equals("finalizarInscricao")) {
+			boolean resultado = jfc.verificarCampos(jf);
+			
+			if(resultado) {
+				jfc.criarInscricao(jf);
+			}
 		}
 	}
 	
