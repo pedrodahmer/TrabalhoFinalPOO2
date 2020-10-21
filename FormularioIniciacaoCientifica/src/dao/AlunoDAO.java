@@ -67,5 +67,40 @@ public class AlunoDAO {
 		
 		return false;
 	}
+	
+	public boolean excluirAluno(int id_aluno) {
+		
+		ConexaoMySQL.abrirConexao();
+		con = ConexaoMySQL.getCon();
+		
+		if(con != null) {
+			
+			String exclusao = "DELETE FROM aluno WHERE id_aluno = " + id_aluno;
+			
+			PreparedStatement prepStmt = null;
+			
+			try {
+				
+				prepStmt = con.prepareStatement(exclusao);
+				
+				int resultado = prepStmt.executeUpdate();
+				
+				if(resultado == 1) {
+					ConexaoMySQL.fecharConexao();
+					return true;
+				} else {
+					ConexaoMySQL.fecharConexao();
+					return false;
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		return false;
+	}
 
 }

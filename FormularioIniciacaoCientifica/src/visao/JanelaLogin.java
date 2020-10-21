@@ -3,6 +3,8 @@ package visao;
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import java.awt.Rectangle;
@@ -10,14 +12,18 @@ import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class JanelaLogin extends JPanel {
 	private JTextField fieldUsuario;
 	private JTextField fieldSenha;
 	private JButton btnLogar;
 	private JButton btnLimpar;
+	private JLabel lblSenhaEsquecida;
 
 	//construtor da janela de login
 	public JanelaLogin() {
@@ -43,6 +49,26 @@ public class JanelaLogin extends JPanel {
 		fieldSenha = new JTextField();
 		add(fieldSenha, "cell 0 6,alignx center");
 		fieldSenha.setColumns(30);
+		
+		lblSenhaEsquecida = new JLabel("Esqueci minha senha");
+		lblSenhaEsquecida.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		lblSenhaEsquecida.addMouseListener(new MouseAdapter() {			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				
+				lblSenhaEsquecida.setForeground(Color.BLUE);
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				
+				lblSenhaEsquecida.setForeground(Color.BLACK);
+				
+			}
+		});
+		lblSenhaEsquecida.setFont(new Font("Arial", Font.PLAIN, 10));
+		add(lblSenhaEsquecida, "cell 0 7,alignx center");
 		
 		btnLimpar = new JButton("Limpar");
 		btnLimpar.setActionCommand("limpar-login");
@@ -88,7 +114,25 @@ public class JanelaLogin extends JPanel {
 	public void setBtnLimpar(JButton btnLimpar) {
 		this.btnLimpar = btnLimpar;
 	}
+
+	public JLabel getLblSenhaEsquecida() {
+		return lblSenhaEsquecida;
+	}
+
+	public void setLblSenhaEsquecida(JLabel lblSenhaEsquecida) {
+		this.lblSenhaEsquecida = lblSenhaEsquecida;
+	}
 	
+	public String obterNovaSenha() {
+		
+		String novaSenha = JOptionPane.showInputDialog(this, "Insira sua nova senha:", "Alteração de senha", JOptionPane.INFORMATION_MESSAGE);
+		
+		return novaSenha;
+		
+	}
 	
+	public void avisoCampoNomeVazio() {
+		JOptionPane.showMessageDialog(this, "Preencha o campo nome!", "Aviso", JOptionPane.WARNING_MESSAGE);
+	}
 
 }

@@ -3,10 +3,12 @@ package controle;
 import visao.JanelaCadastro;
 import visao.JanelaExecucao;
 import visao.JanelaFormulario;
+import visao.JanelaGerenciamento;
 import visao.JanelaLogin;
 import visao.JanelaPrincipal;
 
 public class AppFormulario {
+	
 	public static void main(String[] args) {
 		
 		JanelaPrincipal jp = new JanelaPrincipal();
@@ -19,5 +21,6 @@ public class AppFormulario {
 		ClasseControle cc = new ClasseControle(jp, jl, jc, je, jf, jg);
 		
 		jp.setVisible(true);
+	
 	}
 }

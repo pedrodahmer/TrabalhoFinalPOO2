@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import modelo.Projeto;
 
@@ -64,6 +65,41 @@ public class ProjetoDAO {
 				e2.printStackTrace();
 				return false;
 			}
+		}
+		
+		return false;
+	}
+	
+	public boolean excluirProjeto(int id_projeto) {
+		
+		ConexaoMySQL.abrirConexao();
+		con = ConexaoMySQL.getCon();
+		
+		if(con != null) {
+			
+			String exclusao = "DELETE FROM projeto WHERE id_projeto = " + id_projeto;
+			
+			PreparedStatement prepStmt = null;
+			
+			try {
+				
+				prepStmt = con.prepareStatement(exclusao);
+				
+				int resultado = prepStmt.executeUpdate();
+				
+				if(resultado == 1) {
+					ConexaoMySQL.fecharConexao();
+					return true;
+				} else {
+					ConexaoMySQL.fecharConexao();
+					return false;
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		
 		return false;

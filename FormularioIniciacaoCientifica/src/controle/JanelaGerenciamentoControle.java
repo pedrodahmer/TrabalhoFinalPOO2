@@ -6,6 +6,7 @@ import javax.swing.table.DefaultTableModel;
 
 import dao.InscricaoDAO;
 import modelo.Inscricao;
+import visao.JanelaGerenciamento;
 
 public class JanelaGerenciamentoControle {
 
@@ -33,6 +34,25 @@ public class JanelaGerenciamentoControle {
 			tabelaModelo.addRow(registro);
 		}
 		
+	}
+	
+	public void excluirInscricao(JanelaGerenciamento jg) {
+		
+		String id_inscricao = jg.getFieldInformeId().getText();
+		
+		if(id_inscricao == null) {
+			jg.avisoCampoIdVazio();
+		} else {
+			int resposta = jg.avisoExclusao();
+			
+			if(resposta == 0) {
+				boolean resultado = inscricaoDao.excluirInscricao(id_inscricao);
+				
+				jg.avisoResultadoExclusao(resultado);
+			}
+			
+		}
+
 	}
 	
 }

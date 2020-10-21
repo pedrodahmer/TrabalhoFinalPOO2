@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import modelo.Orientador;
 import modelo.Projeto;
@@ -66,6 +67,41 @@ public class OrientadorDAO {
 				e2.printStackTrace();
 				return false;
 			}
+		}
+		
+		return false;
+	}
+	
+	public boolean excluirOrientador(int id_orientador) {
+		
+		ConexaoMySQL.abrirConexao();
+		con = ConexaoMySQL.getCon();
+		
+		if(con != null) {
+			
+			String exclusao = "DELETE FROM orientador WHERE id_orientador = " + id_orientador;
+			
+			PreparedStatement prepStmt = null;
+			
+			try {
+				
+				prepStmt = con.prepareStatement(exclusao);
+				
+				int resultado = prepStmt.executeUpdate();
+				
+				if(resultado == 1) {
+					ConexaoMySQL.fecharConexao();
+					return true;
+				} else {
+					ConexaoMySQL.fecharConexao();
+					return false;
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		
 		return false;

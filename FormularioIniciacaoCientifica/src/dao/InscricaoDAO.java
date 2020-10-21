@@ -12,6 +12,10 @@ public class InscricaoDAO {
 	
 	private Connection con = null;
 	
+	private AlunoDAO alunoDao = new AlunoDAO();
+	private OrientadorDAO orientadorDao = new OrientadorDAO();
+	private ProjetoDAO projetoDao = new ProjetoDAO();
+	
 	public InscricaoDAO() {}
 	
 	public int obterUltimoIdInserido() {
@@ -91,6 +95,63 @@ public class InscricaoDAO {
 		
 		return listaInscricao;
 		
+	}
+	
+	public boolean excluirInscricao(String id) {
+		
+		ConexaoMySQL.abrirConexao();
+		con = ConexaoMySQL.getCon();
+		
+		int id_inscricao = Integer.parseInt(id);
+		
+		String consulta = "SELECT * FROM inscricao_ic WHERE id_inscricao_ic = " + id_inscricao;
+		
+		PreparedStatement prepStmt = null;
+		
+		int id_aluno = 0, id_orientador = 0, id_projeto = 0;
+		
+		try {
+			prepStmt = con.prepareStatement(consulta);
+			
+			ResultSet rs = prepStmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				id_aluno = rs.getInt(2);
+				id_orientador = rs.getInt(3);
+				id_projeto = rs.getInt(4);
+				
+			}
+			
+			String exclusao = "DELETE FROM inscricao_ic WHERE id_inscricao_ic = " + id_inscricao;
+			
+			prepStmt = con.prepareStatement(exclusao);
+			
+			int resultado = prepStmt.executeUpdate();
+			
+			if(resultado == 1) {
+				
+				boolean resultadoAluno = alunoDao.excluirAluno(id_aluno);
+				boolean resultadoOrientador = orientadorDao.excluirOrientador(id_orientador);
+				boolean resultadoProjeto = projetoDao.excluirProjeto(id_projeto);
+				
+				if(resultadoAluno && resultadoOrientador && resultadoProjeto) {
+					ConexaoMySQL.fecharConexao();
+					return true;
+				}
+				
+			} else {
+				ConexaoMySQL.fecharConexao();
+				return false;
+			}
+
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
 	}
 			
 }

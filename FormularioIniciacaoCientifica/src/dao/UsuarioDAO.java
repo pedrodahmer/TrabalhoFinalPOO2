@@ -95,4 +95,39 @@ public class UsuarioDAO {
 		return false;
 	}
 
+	public boolean atualizarSenha(String novaSenha, String nomeUsuario) {
+		
+		ConexaoMySQL.abrirConexao();
+		con = ConexaoMySQL.getCon();
+		
+		if(con != null) {
+			PreparedStatement prepStmt = null;
+			
+			String sql = "UPDATE usuario SET senha = ? WHERE nome LIKE ?";
+			
+			try {
+				prepStmt = con.prepareStatement(sql);
+				
+				prepStmt.setString(1, novaSenha);
+				prepStmt.setString(2, nomeUsuario);
+				
+				int result = prepStmt.executeUpdate();
+				
+				if(result == 1) {
+					ConexaoMySQL.fecharConexao();
+					return true;
+				} else {
+					ConexaoMySQL.fecharConexao();
+					return false;
+				}
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+				return false;
+			}
+		}
+		
+		return false;
+	}
+	
 }

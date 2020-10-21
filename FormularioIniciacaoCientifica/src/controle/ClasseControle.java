@@ -3,15 +3,18 @@ package controle;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import dao.UsuarioDAO;
 import visao.JanelaCadastro;
 import visao.JanelaExecucao;
 import visao.JanelaFormulario;
+import visao.JanelaGerenciamento;
 import visao.JanelaLogin;
 import visao.JanelaPrincipal;
 
-public class ClasseControle implements ActionListener{
+public class ClasseControle implements ActionListener, MouseListener {
 	
 	private JanelaPrincipal jp;
 	private JanelaLogin jl;
@@ -51,6 +54,10 @@ public class ClasseControle implements ActionListener{
 		this.jf.getBtnAnexarDocs().addActionListener(this);
 		this.jf.getBtnAnexarPlano().addActionListener(this);
 		this.jf.getBtnFinalizar().addActionListener(this);
+		
+		this.jg.getBtnExcluirInscricao().addActionListener(this);
+		
+		this.jl.getLblSenhaEsquecida().addMouseListener(this);
 	}
 	
 	//Instanciando as classes que controlam as telas de visão
@@ -62,6 +69,14 @@ public class ClasseControle implements ActionListener{
 	
 	public ClasseControle() {
 		
+	}
+	
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getComponent() == jl.getLblSenhaEsquecida()) {
+			jlc.atualizarSenha(jl, usuarioDao);
+		}
 	}
 
 	@Override
@@ -132,8 +147,35 @@ public class ClasseControle implements ActionListener{
 				jfc.criarInscricao(jf);
 			}
 		}
+		
+		// Chamada de metodos da tela de gerenciamento
+		else if(e.getActionCommand().equals("excluirInscricao")) {
+			jgc.excluirInscricao(jg);
+		}
 	}
-	
-	
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

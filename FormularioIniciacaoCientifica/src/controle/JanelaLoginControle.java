@@ -43,4 +43,18 @@ public class JanelaLoginControle {
 		jl.getFieldUsuario().setText("");
 		jl.getFieldSenha().setText("");
 	}
+	
+	public void atualizarSenha(JanelaLogin jl, UsuarioDAO usuarioDao) {
+		
+		String nomeUsuario = jl.getFieldUsuario().getText();
+		
+		if(nomeUsuario.equals("")) {
+			jl.avisoCampoNomeVazio();
+		} else {
+			String novaSenha = jl.obterNovaSenha();
+			
+			usuarioDao.atualizarSenha(novaSenha, nomeUsuario);
+		}
+		
+	}
 }

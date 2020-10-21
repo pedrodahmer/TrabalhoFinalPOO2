@@ -3,6 +3,7 @@ package controle;
 import java.awt.CardLayout;
 
 import visao.JanelaExecucao;
+import visao.JanelaGerenciamento;
 import visao.JanelaLogin;
 import visao.JanelaPrincipal;
 

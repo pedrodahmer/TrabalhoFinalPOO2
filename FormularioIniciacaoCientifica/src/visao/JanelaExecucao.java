@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 public class JanelaExecucao extends JFrame {
 
@@ -41,6 +42,7 @@ public class JanelaExecucao extends JFrame {
 	}
 
 	public JanelaExecucao() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(JanelaExecucao.class.getResource("/imagens/icon-ufcspa-quadrado.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		setResizable(false);
@@ -57,6 +59,7 @@ public class JanelaExecucao extends JFrame {
 		mnArquivo.add(itemNovoForm);
 		
 		itemGerenciamento = new JMenuItem("Gerenciar Inscri\u00E7\u00F5es");
+		itemGerenciamento.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/icon-lista.png")));
 		itemGerenciamento.setActionCommand("gerenciar");
 		mnArquivo.add(itemGerenciamento);
 		

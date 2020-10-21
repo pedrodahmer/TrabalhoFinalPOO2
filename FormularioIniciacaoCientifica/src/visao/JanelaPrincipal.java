@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.Toolkit;
 
 public class JanelaPrincipal extends JFrame {
 
@@ -34,7 +35,8 @@ public class JanelaPrincipal extends JFrame {
 	private JButton btnCadastro;
 
 	public JanelaPrincipal() {
-		setTitle("Formul\u00E1rio de inscri\u00E7\u00E3o para IC");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(JanelaPrincipal.class.getResource("/imagens/icon-ufcspa-quadrado.png")));
+		setTitle("Formul\u00E1rio de Inscri\u00E7\u00E3o para IC Volunt\u00E1ria");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		
@@ -54,7 +56,6 @@ public class JanelaPrincipal extends JFrame {
 				System.exit(0);
 			}
 		});
-		mnNewMenu.add(itemSair);
 		
 		// Voltar a tela principal
 		itemMenuPrincipal = new JMenuItem("Menu Principal");
@@ -67,6 +68,7 @@ public class JanelaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenu.add(itemMenuPrincipal);
+		mnNewMenu.add(itemSair);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
