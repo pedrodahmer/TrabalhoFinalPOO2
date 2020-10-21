@@ -27,8 +27,6 @@ public class JanelaFormularioControle {
 	private OrientadorDAO orientadorDao = new OrientadorDAO();
 	private InscricaoDAO inscricaoDao = new InscricaoDAO();
 	
-	private Inscricao inscricao = new Inscricao();
-	
 	public void handlesAbrirJanelaFormulario(JanelaExecucao je, JanelaFormulario jf) {
 		je.setContentPane(jf);
 		jf.revalidate();

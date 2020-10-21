@@ -18,15 +18,17 @@ public class ClasseControle implements ActionListener{
 	private JanelaCadastro jc;
 	private JanelaExecucao je;
 	private JanelaFormulario jf;
+	private JanelaGerenciamento jg;
 	
 	private UsuarioDAO usuarioDao;
 	
-	public ClasseControle(JanelaPrincipal jp, JanelaLogin jl, JanelaCadastro jc, JanelaExecucao je, JanelaFormulario jf) {
+	public ClasseControle(JanelaPrincipal jp, JanelaLogin jl, JanelaCadastro jc, JanelaExecucao je, JanelaFormulario jf, JanelaGerenciamento jg) {
 		this.jl = jl;
 		this.jp = jp;
 		this.jc = jc;
 		this.je = je;
 		this.jf = jf;
+		this.jg = jg;
 		
 		this.usuarioDao = new UsuarioDAO();
 		
@@ -43,6 +45,7 @@ public class ClasseControle implements ActionListener{
 		this.je.getItemNovoForm().addActionListener(this);
 		this.je.getItemMenuPrincipal().addActionListener(this);
 		this.je.getItemSair().addActionListener(this);
+		this.je.getItemGerenciamento().addActionListener(this);
 		
 		this.jf.getBtnAnexarParecer().addActionListener(this);
 		this.jf.getBtnAnexarDocs().addActionListener(this);
@@ -55,6 +58,7 @@ public class ClasseControle implements ActionListener{
 	JanelaCadastroControle jcc = new JanelaCadastroControle();
 	JanelaExecucaoControle jec = new JanelaExecucaoControle();
 	JanelaFormularioControle jfc = new JanelaFormularioControle();
+	JanelaGerenciamentoControle jgc = new JanelaGerenciamentoControle();
 	
 	public ClasseControle() {
 		
@@ -103,6 +107,9 @@ public class ClasseControle implements ActionListener{
 		}
 		else if(e.getActionCommand().equals("sair")) {
 			jec.handlesSair();
+		} else if(e.getActionCommand().equals("gerenciar")) {
+			jec.handlesAbrirGerenciamento(je, jg);
+			jgc.preencherTabela(jg);
 		}
 		
 		//chamada dos métodos da tela de formulário

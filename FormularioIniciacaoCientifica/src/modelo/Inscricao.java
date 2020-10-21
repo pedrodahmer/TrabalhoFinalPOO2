@@ -2,40 +2,50 @@ package modelo;
 
 public class Inscricao {
 
-	private int id_aluno;
-	private int id_orientador;
-	private int id_projeto;
+	private int id_inscricao;
+	private String nomeAluno;
+	private String tituloProjeto;
+	private String nomeOrientador;
 	
-	public Inscricao() {};
-	
-	public Inscricao(int id_aluno, int id_orientador, int id_projeto) {
-		this.id_aluno = id_aluno;
-		this.id_orientador = id_orientador;
-		this.id_projeto = id_projeto;
+	public Inscricao() {}
+
+	public Inscricao(int id_inscricao, String nomeAluno, String tituloProjeto, String nomeOrientador) {
+		this.id_inscricao = id_inscricao;
+		this.nomeAluno = nomeAluno;
+		this.tituloProjeto = tituloProjeto;
+		this.nomeOrientador = nomeOrientador;
 	}
-	
-	public int getId_aluno() {
-		return id_aluno;
+
+	public int getId_inscricao() {
+		return id_inscricao;
 	}
-	
-	public void setId_aluno(int id_aluno) {
-		this.id_aluno = id_aluno;
+
+	public void setId_inscricao(int id_inscricao) {
+		this.id_inscricao = id_inscricao;
 	}
-	
-	public int getId_orientador() {
-		return id_orientador;
+
+	public String getNomeAluno() {
+		return nomeAluno;
 	}
-	
-	public void setId_orientador(int id_orientador) {
-		this.id_orientador = id_orientador;
+
+	public void setNomeAluno(String nomeAluno) {
+		this.nomeAluno = nomeAluno;
 	}
-	
-	public int getId_projeto() {
-		return id_projeto;
+
+	public String getTituloProjeto() {
+		return tituloProjeto;
 	}
-	
-	public void setId_projeto(int id_projeto) {
-		this.id_projeto = id_projeto;
+
+	public void setTituloProjeto(String tituloProjeto) {
+		this.tituloProjeto = tituloProjeto;
+	}
+
+	public String getNomeOrientador() {
+		return nomeOrientador;
+	}
+
+	public void setNomeOrientador(String nomeOrientador) {
+		this.nomeOrientador = nomeOrientador;
 	}
 	
 }

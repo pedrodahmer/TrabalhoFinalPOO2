@@ -25,6 +25,7 @@ public class JanelaExecucao extends JFrame {
 	private JMenuItem itemMenuPrincipal;
 	private JMenuItem itemSair;
 	private JLabel lblNomeUser;
+	private JMenuItem itemGerenciamento;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -55,7 +56,8 @@ public class JanelaExecucao extends JFrame {
 		itemNovoForm.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/icon-inscricao.png")));
 		mnArquivo.add(itemNovoForm);
 		
-		JMenuItem itemGerenciamento = new JMenuItem("Gerenciar Inscri\u00E7\u00F5es");
+		itemGerenciamento = new JMenuItem("Gerenciar Inscri\u00E7\u00F5es");
+		itemGerenciamento.setActionCommand("gerenciar");
 		mnArquivo.add(itemGerenciamento);
 		
 		itemMenuPrincipal = new JMenuItem("Menu principal");
@@ -87,7 +89,7 @@ public class JanelaExecucao extends JFrame {
 		lblBemVindo.setFont(new Font("Arial", Font.BOLD, 19));
 		contentPane.add(lblBemVindo, "flowx,cell 1 0");
 		
-		lblNomeUser = new JLabel("Pedrao");
+		lblNomeUser = new JLabel("");
 		lblNomeUser.setFont(new Font("Arial", Font.BOLD, 19));
 		contentPane.add(lblNomeUser, "cell 1 0");
 	}
@@ -123,4 +125,13 @@ public class JanelaExecucao extends JFrame {
 	public void setLblNomeUser(JLabel lblNomeUser) {
 		this.lblNomeUser = lblNomeUser;
 	}
+
+	public JMenuItem getItemGerenciamento() {
+		return itemGerenciamento;
+	}
+
+	public void setItemGerenciamento(JMenuItem itemGerenciamento) {
+		this.itemGerenciamento = itemGerenciamento;
+	}
+	
 }

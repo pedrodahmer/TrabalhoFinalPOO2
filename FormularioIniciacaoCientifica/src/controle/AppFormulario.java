@@ -14,8 +14,9 @@ public class AppFormulario {
 		JanelaCadastro jc = new JanelaCadastro();
 		JanelaExecucao je = new JanelaExecucao();
 		JanelaFormulario jf = new JanelaFormulario();
+		JanelaGerenciamento jg = new JanelaGerenciamento();
 		
-		ClasseControle cc = new ClasseControle(jp, jl, jc, je, jf);
+		ClasseControle cc = new ClasseControle(jp, jl, jc, je, jf, jg);
 		
 		jp.setVisible(true);
 	}

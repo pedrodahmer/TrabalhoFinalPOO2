@@ -45,22 +45,16 @@ public class OrientadorDAO {
 					
 					PreparedStatement prepStmt2 = con.prepareStatement(sql2);
 					
-					prepStmt2.executeUpdate();
+					res = prepStmt2.executeUpdate();
 					
-//					int lastInsertedId = obterUltimoIdInserido();
-//					
-//					boolean resultado = inscreverOrientador(lastInsertedId);
-//					
-//					if(resultado) {
-//						ConexaoMySQL.fecharConexao();
-//						return true;
-//					} else {
-//						ConexaoMySQL.fecharConexao();
-//						return false;
-//					}
+					if(res == 1) {
+						ConexaoMySQL.fecharConexao();
+						return true;
+					} else {
+						ConexaoMySQL.fecharConexao();
+						return false;
+					}
 					
-					ConexaoMySQL.fecharConexao();
-					return true;
 					
 				} else {
 					ConexaoMySQL.fecharConexao();
@@ -72,55 +66,6 @@ public class OrientadorDAO {
 				e2.printStackTrace();
 				return false;
 			}
-		}
-		
-		return false;
-	}
-	
-	private int obterUltimoIdInserido() {
-		
-		int lastInsertedId = 0;
-		
-		String sql = "SELECT * FROM inscricao_ic WHERE id_inscricao_ic ="
-				+ "(SELECT max(id_inscricao_ic) FROM inscricao_ic)";
-		
-		try {
-			
-			PreparedStatement prepStmt = con.prepareStatement(sql);
-			
-			ResultSet rs = prepStmt.executeQuery();
-			
-			if(rs.next()) {
-				lastInsertedId = rs.getInt("id_inscricao_ic");
-				/*i.setId_aluno(lastInsertedId);
-				resultId = i.getId_aluno();*/
-			}
-			
-			return lastInsertedId;
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-		return lastInsertedId;
-	}
-	
-	private boolean inscreverOrientador(int lastInsertedId) {
-		
-		String sql = "INSERT INTO inscricao_ic (id_orientador_fk) VALUES (?)";
-		
-		try {
-			
-			PreparedStatement prepStmt = con.prepareStatement(sql);
-			
-			prepStmt.setInt(1, lastInsertedId);
-			
-			prepStmt.executeUpdate();
-			
-			return true;
-			
-		} catch (Exception e) {
-			// TODO: handle exception
 		}
 		
 		return false;
