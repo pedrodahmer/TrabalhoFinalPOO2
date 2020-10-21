@@ -10,10 +10,12 @@ import visao.JanelaGerenciamento;
 
 public class JanelaGerenciamentoControle {
 
+	//Instanciando e inicializando a classe DAO utilizada, para que não seja nescessário que ela seja passada por parâmetro
 	private InscricaoDAO inscricaoDao = new InscricaoDAO();
 	
 	public JanelaGerenciamentoControle() {};
 	
+	//Pega o ArrayList que vem da classe DAO para realizar o preenhimento da tabela. Cada posição do ArrayList representa uma linha da tabela
 	public void preencherTabela(JanelaGerenciamento jg) {
 		
 		ArrayList<Inscricao> inscricoes;
@@ -36,6 +38,7 @@ public class JanelaGerenciamentoControle {
 		
 	}
 	
+	//Exclui uma inscrição
 	public void excluirInscricao(JanelaGerenciamento jg) {
 		
 		String id_inscricao = jg.getFieldInformeId().getText();

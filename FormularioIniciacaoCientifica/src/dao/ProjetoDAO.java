@@ -13,6 +13,8 @@ public class ProjetoDAO {
 	
 	public ProjetoDAO() {};
 	
+	//Realiza o cadastro de um projeto no banco de dados passando os valores inseridos pelo usuário
+	//na tela de informações do projeto, durante o preenchimento do formulário
 	public boolean cadastrarProjeto(Projeto p, InscricaoDAO i) {
 		
 		ConexaoMySQL.abrirConexao();
@@ -70,6 +72,8 @@ public class ProjetoDAO {
 		return false;
 	}
 	
+	//Exclui um projeto da tabela, usando como parâmetro o id de projeto presente na tabela
+	//de inscirção dele, em que seu id é uma chave estrangeira
 	public boolean excluirProjeto(int id_projeto) {
 		
 		ConexaoMySQL.abrirConexao();

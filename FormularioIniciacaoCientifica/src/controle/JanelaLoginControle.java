@@ -10,6 +10,9 @@ import visao.JanelaPrincipal;
 
 public class JanelaLoginControle {
 	
+	//Instanciando e inicializando a classe DAO utilizada, para que não seja nescessário que ela seja passada por parâmetro
+	private UsuarioDAO usuarioDAO = new UsuarioDAO();
+	
 	//Método que realiza a troca de tela para a tela de login
 	public void handlesAbrirLogin(JanelaLogin jl, JanelaPrincipal jp) {
 		jp.getContentPane().add(jl, "telaLogin");
@@ -17,16 +20,16 @@ public class JanelaLoginControle {
         cl.show(jp.getContentPane(), "telaLogin");
 	}
 	
-	//Realiza o login do usuário, acionando o método de conexão mysql para verificar se usuário
+	//Realiza o login do usuário, acionando a classe DAO para verificar se usuário
 	//esta presente no banco de dados
-	public boolean handlesLogin(JanelaLogin jl, UsuarioDAO usuarioDao) {		
+	public boolean handlesLogin(JanelaLogin jl) {		
 		
 		String senha = jl.getFieldSenha().getText();
 		
 		Usuario u = new Usuario(null, senha);
 		
-		boolean resultado = usuarioDao.autenticaUsuario(u);
-		
+		boolean resultado = usuarioDAO.autenticaUsuario(u);
+
 		jl.getFieldUsuario().setText("");
 		jl.getFieldSenha().setText("");
 		
@@ -39,12 +42,14 @@ public class JanelaLoginControle {
 		return false;
 	}
 	
+	//Limpa os campos da tela de Login
 	public void handlesLimparLogin(JanelaLogin jl) {
 		jl.getFieldUsuario().setText("");
 		jl.getFieldSenha().setText("");
 	}
 	
-	public void atualizarSenha(JanelaLogin jl, UsuarioDAO usuarioDao) {
+	//Realiza a atroca da senha do usuário, chamando o método na classe DAO responsável por operações com usuário
+	public void atualizarSenha(JanelaLogin jl) {
 		
 		String nomeUsuario = jl.getFieldUsuario().getText();
 		
@@ -53,7 +58,7 @@ public class JanelaLoginControle {
 		} else {
 			String novaSenha = jl.obterNovaSenha();
 			
-			usuarioDao.atualizarSenha(novaSenha, nomeUsuario);
+			usuarioDAO.atualizarSenha(novaSenha, nomeUsuario);
 		}
 		
 	}

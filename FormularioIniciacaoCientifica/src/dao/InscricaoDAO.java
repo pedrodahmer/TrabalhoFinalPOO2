@@ -12,12 +12,15 @@ public class InscricaoDAO {
 	
 	private Connection con = null;
 	
+	//Instanciando e inicializando as classes DAO utilizadas
 	private AlunoDAO alunoDao = new AlunoDAO();
 	private OrientadorDAO orientadorDao = new OrientadorDAO();
 	private ProjetoDAO projetoDao = new ProjetoDAO();
 	
 	public InscricaoDAO() {}
 	
+	//Obtém o último id inserido na tabela, realizando uma querry que busca o último id
+	//presente na tabela inscrição
 	public int obterUltimoIdInserido() {
 		
 		ConexaoMySQL.abrirConexao();
@@ -54,6 +57,8 @@ public class InscricaoDAO {
 		
 	}
 	
+	//Retorna um ArrayList, em que cada linha representa um objeto de inscrição, contendo
+	//os ids de Aluno, Orientador e Projeto da inscrição
 	public ArrayList<Inscricao> obterInscricoes() {
 		
 		ConexaoMySQL.abrirConexao();
@@ -96,6 +101,7 @@ public class InscricaoDAO {
 		return listaInscricao;
 		
 	}
+	
 	
 	public boolean excluirInscricao(String id) {
 		

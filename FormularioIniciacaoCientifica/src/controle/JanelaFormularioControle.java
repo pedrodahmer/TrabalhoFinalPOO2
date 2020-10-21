@@ -17,23 +17,27 @@ import visao.JanelaFormulario;
 
 public class JanelaFormularioControle {
 	
+	//Criação de variáveis para que elas possam armazenar o caminho dos arquivos selecionados pelo usuário
 	private String caminhoDocs = null;
 	private String caminhoParecer = null;
 	private String caminhoPlanoTrabalho = null;
 	private String caminhoHistEscolar = null;
 	
+	//Instanciando e inicializando as classes DAO utilizadas, para que não seja nescessário que elas sejam passadas por parâmetro
 	private AlunoDAO alunoDao = new AlunoDAO();
 	private ProjetoDAO projetoDao = new ProjetoDAO();
 	private OrientadorDAO orientadorDao = new OrientadorDAO();
 	private InscricaoDAO inscricaoDao = new InscricaoDAO();
 	
-	public void handlesAbrirJanelaFormulario(JanelaExecucao je, JanelaFormulario jf) {
+	//Abre a janela de preenhimento de formulário
+	public void abrirJanelaFormulario(JanelaExecucao je, JanelaFormulario jf) {
 		je.setContentPane(jf);
 		jf.revalidate();
 		jf.repaint();
 	}
 	
-	public boolean handlesAnexarArquivos(JanelaFormulario jf, String arquivo) {
+	//Responsável por abrir os JFileChoosers para que o usuário anexe arquivos necessários
+	public boolean anexarArquivos(JanelaFormulario jf, String arquivo) {
 		JFileChooser fileChooser = new JFileChooser();
 		int resposta = fileChooser.showOpenDialog(jf);
 		
@@ -58,6 +62,7 @@ public class JanelaFormularioControle {
 		return true;
 	}
 	
+	//Verifica se nenhum dos campos obrigatórios não foi preenchido
 	public boolean verificarCampos(JanelaFormulario jf) {
 		
 		if(jf.getRdbtnOutra().isSelected()) {
@@ -81,6 +86,7 @@ public class JanelaFormularioControle {
 		return true;
 	}
 	
+	//Cria a inscrição do aluno, usando o ID do aluno, orientador e projeto
 	public boolean criarInscricao(JanelaFormulario jf) {
 		
 		Aluno aluno = obterCamposAluno(jf);
@@ -98,6 +104,7 @@ public class JanelaFormularioControle {
 		return true;
 	}
 	
+	//Obtem os valores presentes nos campos preenchiveis de dados de aluno
 	public Aluno obterCamposAluno(JanelaFormulario jf) {
 
 		String nome = jf.getFieldNomeAluno().getText();
@@ -117,6 +124,7 @@ public class JanelaFormularioControle {
 		return aluno;
 	}
 	
+	//Obtem os valores presentes nos campos preenchiveis de dados de projeto
 	public Projeto obterCamposProjeto(JanelaFormulario jf) {
 		
 		String titulo = jf.getFieldTituloProjeto().getText();
@@ -130,6 +138,7 @@ public class JanelaFormularioControle {
 		return projeto;
 	}
 	
+	//Obtem os valores presentes nos campos preenchiveis de dados de orientador
 	public Orientador obterCamposOrientador(JanelaFormulario jf) {
 		
 		String nome = jf.getFieldNomeOrientador().getText();

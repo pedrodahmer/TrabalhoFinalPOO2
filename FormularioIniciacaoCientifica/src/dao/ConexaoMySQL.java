@@ -35,7 +35,7 @@ public class ConexaoMySQL {
 			status = "STATUS -----> Não foi possível realizar a conexão";
 		}
 		
-	}
+	}	
 	
 	public static boolean fecharConexao() {
 		

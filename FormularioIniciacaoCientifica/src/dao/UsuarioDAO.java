@@ -13,6 +13,7 @@ public class UsuarioDAO {
 	
 	public UsuarioDAO() {}
 	
+	//Verifica se os dados informados pelo usuário são válidos, estando presentes no banco de dados 
 	public boolean autenticaUsuario(Usuario u) {
 		
 		String nome = null;
@@ -58,6 +59,7 @@ public class UsuarioDAO {
 		
 	}
 	
+	//Inclui os dados informados pelo usuário no banco de dados, na forma de um novo usuário na tabela
 	public boolean cadastraUsuario(Usuario u) {
 		
 		ConexaoMySQL.abrirConexao();

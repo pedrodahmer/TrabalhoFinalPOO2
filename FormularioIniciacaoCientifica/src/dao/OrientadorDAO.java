@@ -14,6 +14,7 @@ public class OrientadorDAO {
 	
 	public OrientadorDAO() {}
 	
+	//Cadastra um orientador na tabela de orientadores usando os valores informados pelo usuário
 	public boolean cadastrarOrientador(Orientador o, InscricaoDAO i) {
 		
 		ConexaoMySQL.abrirConexao();
@@ -72,6 +73,8 @@ public class OrientadorDAO {
 		return false;
 	}
 	
+	//Exclui um orientador da tabela, usando como parâmetro o id de orientador presente na tabela
+	//de inscirção dele, em que seu id é uma chave estrangeira
 	public boolean excluirOrientador(int id_orientador) {
 		
 		ConexaoMySQL.abrirConexao();

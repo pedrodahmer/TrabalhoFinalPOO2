@@ -20,7 +20,6 @@ public class AppFormulario {
 		
 		ClasseControle cc = new ClasseControle(jp, jl, jc, je, jf, jg);
 		
-		jp.setVisible(true);
-	
+		jp.setVisible(true);	
 	}
 }

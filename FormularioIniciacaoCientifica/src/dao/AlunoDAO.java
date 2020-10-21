@@ -14,6 +14,8 @@ public class AlunoDAO {
 	
 	public AlunoDAO() {}
 	
+	//Realiza o cadastro de um aluno no banco de dados passando os valores inseridos pelo usuário
+	//na tela de informações do aluno, durante o preenchimento do formulário
 	public boolean cadastrarAluno(Aluno a, InscricaoDAO i) {
 		
 		ConexaoMySQL.abrirConexao();
@@ -68,6 +70,8 @@ public class AlunoDAO {
 		return false;
 	}
 	
+	//Exclui um aluno da tabela, usando como parâmetro o id de aluno presente na tabela
+	//de inscirção dele, em que seu id é uma chave estrangeira
 	public boolean excluirAluno(int id_aluno) {
 		
 		ConexaoMySQL.abrirConexao();
