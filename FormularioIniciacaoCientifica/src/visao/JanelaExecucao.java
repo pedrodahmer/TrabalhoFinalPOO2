@@ -65,7 +65,7 @@ public class JanelaExecucao extends JFrame {
 		mnArquivo.add(itemGerenciamento);
 
 		itemMenuPrincipal = new JMenuItem("Menu principal");
-		itemMenuPrincipal.setActionCommand("menuPrincipal");
+		itemMenuPrincipal.setActionCommand("menuPrincipalExecucao");
 		itemMenuPrincipal.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/icon-home.png")));
 		mnArquivo.add(itemMenuPrincipal);
 

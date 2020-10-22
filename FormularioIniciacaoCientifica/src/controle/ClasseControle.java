@@ -132,7 +132,7 @@ public class ClasseControle implements ActionListener, MouseListener {
 		}
 
 		// Chamada dos metodos da tela de execucao
-		else if (e.getActionCommand().equals("menuPrincipal")) {
+		else if (e.getActionCommand().equals("menuPrincipalExecucao")) {
 		
 			jec.menuPrincipal(jp, je);
 		

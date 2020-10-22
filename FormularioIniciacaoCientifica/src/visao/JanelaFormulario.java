@@ -142,6 +142,7 @@ public class JanelaFormulario extends JPanel {
 		fieldCargaHoraria.setColumns(10);
 
 		btnAnexarDocs = new JButton("Anexar RG e CPF");
+		btnAnexarDocs.setIcon(new ImageIcon(JanelaFormulario.class.getResource("/imagens/icon-arquivo.png")));
 		btnAnexarDocs.setActionCommand("anexarDocs");
 		btnAnexarDocs.setVisible(false);
 		pnlDadosAluno.add(btnAnexarDocs, "flowx,cell 1 7,growx");
@@ -156,6 +157,7 @@ public class JanelaFormulario extends JPanel {
 		fieldInstituicao.setColumns(10);
 
 		btnAnexarHistEscolar = new JButton("Anexar Hist\u00F3rico Escolar");
+		btnAnexarHistEscolar.setIcon(new ImageIcon(JanelaFormulario.class.getResource("/imagens/icon-arquivo.png")));
 		btnAnexarHistEscolar.setActionCommand("botao-historico-escolar");
 		pnlDadosAluno.add(btnAnexarHistEscolar, "cell 1 7,growx");
 
@@ -216,6 +218,7 @@ public class JanelaFormulario extends JPanel {
 		pnlDadosProjeto.add(lblParecerProjeto, "flowx,cell 0 4, spanx 2");
 
 		btnAnexarParecer = new JButton("Anexar documento");
+		btnAnexarParecer.setIcon(new ImageIcon(JanelaFormulario.class.getResource("/imagens/icon-arquivo.png")));
 		btnAnexarParecer.setActionCommand("anexarParecer");
 		pnlDadosProjeto.add(btnAnexarParecer, "cell 0 4 2 1,grow");
 
@@ -224,6 +227,7 @@ public class JanelaFormulario extends JPanel {
 		pnlDadosProjeto.add(lblPlanoTrabalho, "flowx,cell 0 5");
 
 		btnAnexarPlano = new JButton("Anexar documento");
+		btnAnexarPlano.setIcon(new ImageIcon(JanelaFormulario.class.getResource("/imagens/icon-arquivo.png")));
 		btnAnexarPlano.setActionCommand("anexarPlanoTrabalho");
 		pnlDadosProjeto.add(btnAnexarPlano, "cell 0 5,growx");
 
@@ -306,6 +310,8 @@ public class JanelaFormulario extends JPanel {
 		fieldCelularOrientador.setColumns(10);
 
 		btnFinalizar = new JButton("Finalizar inscri\u00E7\u00E3o");
+		btnFinalizar.setFont(new Font("Arial", Font.PLAIN, 12));
+		btnFinalizar.setIcon(new ImageIcon(JanelaFormulario.class.getResource("/imagens/icon-finalizar.png")));
 		btnFinalizar.setActionCommand("finalizarInscricao");
 		pnlDadosProf.add(btnFinalizar, "cell 0 6,growx, spanx 2");
 
