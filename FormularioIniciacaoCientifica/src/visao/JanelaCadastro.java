@@ -1,6 +1,8 @@
 package visao;
 
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -13,7 +15,7 @@ import java.awt.Color;
 
 public class JanelaCadastro extends JPanel {
 	private JTextField fieldNomeUsuario;
-	private JTextField fieldSenhaUsuario;
+	private JPasswordField fieldSenhaUsuario;
 	private JButton btnLimpar;
 	private JButton btnCadastrar;
 
@@ -41,7 +43,7 @@ public class JanelaCadastro extends JPanel {
 		lblSenhaUsuario.setFont(new Font("Arial", Font.PLAIN, 14));
 		add(lblSenhaUsuario, "cell 0 5,alignx center");
 
-		fieldSenhaUsuario = new JTextField();
+		fieldSenhaUsuario = new JPasswordField();
 		add(fieldSenhaUsuario, "cell 0 6,alignx center");
 		fieldSenhaUsuario.setColumns(30);
 
@@ -66,11 +68,11 @@ public class JanelaCadastro extends JPanel {
 		this.fieldNomeUsuario = fieldNomeUsuario;
 	}
 
-	public JTextField getFieldSenhaUsuario() {
+	public JPasswordField getFieldSenhaUsuario() {
 		return fieldSenhaUsuario;
 	}
 
-	public void setFieldSenhaUsuario(JTextField fieldSenhaUsuario) {
+	public void setFieldSenhaUsuario(JPasswordField fieldSenhaUsuario) {
 		this.fieldSenhaUsuario = fieldSenhaUsuario;
 	}
 

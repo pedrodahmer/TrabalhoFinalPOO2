@@ -1,26 +1,24 @@
 package visao;
 
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JTextField;
-import java.awt.Rectangle;
-import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class JanelaLogin extends JPanel {
 	private JTextField fieldUsuario;
-	private JTextField fieldSenha;
+	private JPasswordField fieldSenha;
 	private JButton btnLogar;
 	private JButton btnLimpar;
 	private JLabel lblSenhaEsquecida;
@@ -46,7 +44,7 @@ public class JanelaLogin extends JPanel {
 		lblSenha.setFont(new Font("Arial", Font.PLAIN, 14));
 		add(lblSenha, "flowx,cell 0 5,alignx center");
 
-		fieldSenha = new JTextField();
+		fieldSenha = new JPasswordField();
 		add(fieldSenha, "cell 0 6,alignx center");
 		fieldSenha.setColumns(30);
 
@@ -95,7 +93,7 @@ public class JanelaLogin extends JPanel {
 		return fieldSenha;
 	}
 
-	public void setFieldSenha(JTextField fieldSenha) {
+	public void setFieldSenha(JPasswordField fieldSenha) {
 		this.fieldSenha = fieldSenha;
 	}
 
