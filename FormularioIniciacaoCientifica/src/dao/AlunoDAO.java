@@ -26,7 +26,7 @@ public class AlunoDAO {
 		if (con != null) {
 
 			String insereAluno = "INSERT INTO aluno(nome, email, cpf, rg, curso, instituicao, serie,"
-					+ "horas_semanas, plano_trabalho, copia_rg_cpf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+					+ "horas_semanas, plano_trabalho, copia_rg_cpf, copia_hist_escolar) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 			PreparedStatement prepStmt = null;
 
@@ -43,6 +43,7 @@ public class AlunoDAO {
 				prepStmt.setInt(8, a.getHorasSemanais());
 				prepStmt.setString(9, a.getPlanoTrabalho());
 				prepStmt.setString(10, a.getCopiaDocumento());
+				prepStmt.setString(11, a.getHistEscolar());
 
 				int res = prepStmt.executeUpdate();
 

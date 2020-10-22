@@ -13,12 +13,14 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class JanelaGerenciamento extends JPanel {
 	private JTextField fieldInformeId;
 	private JTable tabelaInscricao;
 	private final String colunas[] = { "ID_Inscricao", "Aluno", "Projeto", "Orientador" };
 	private JButton btnExcluirInscricao;
+	private JButton btnRecarregar;
 
 	/**
 	 * Create the panel.
@@ -39,6 +41,7 @@ public class JanelaGerenciamento extends JPanel {
 		fieldInformeId.setColumns(10);
 
 		btnExcluirInscricao = new JButton("Excluir");
+		btnExcluirInscricao.setIcon(new ImageIcon(JanelaGerenciamento.class.getResource("/imagens/limpar.png")));
 		btnExcluirInscricao.setActionCommand("excluirInscricao");
 		btnExcluirInscricao.setFont(new Font("Arial", Font.PLAIN, 12));
 		add(btnExcluirInscricao, "cell 0 2");
@@ -58,6 +61,11 @@ public class JanelaGerenciamento extends JPanel {
 			}
 		});
 		scrollPane.setViewportView(tabelaInscricao);
+		
+		btnRecarregar = new JButton("");
+		btnRecarregar.setIcon(new ImageIcon(JanelaGerenciamento.class.getResource("/imagens/icon-recarregar.png")));
+		btnRecarregar.setActionCommand("recarregarTabela");
+		add(btnRecarregar, "cell 0 2");
 
 	}
 
@@ -83,6 +91,14 @@ public class JanelaGerenciamento extends JPanel {
 
 	public void setBtnExcluirInscricao(JButton btnExcluirInscricao) {
 		this.btnExcluirInscricao = btnExcluirInscricao;
+	}
+
+	public JButton getBtnRecarregar() {
+		return btnRecarregar;
+	}
+
+	public void setBtnRecarregar(JButton btnRecarregar) {
+		this.btnRecarregar = btnRecarregar;
 	}
 
 	// Caixas de dialogo

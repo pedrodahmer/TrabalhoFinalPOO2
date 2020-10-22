@@ -88,14 +88,14 @@ public class FormularioControle {
 			return false;
 		}
 
-		if (jf.getFieldNomeAluno().getText().equals("") || jf.getFieldCPFAluno().getText().equals("")
-				|| jf.getFieldRGAluno().getText().equals("") || jf.getFieldEmailAluno().getText().equals("")
-				|| jf.getFieldCursoAluno().getText().equals("") || jf.getFieldInstituicao().getText().equals("")
-				|| jf.getFieldSerieAluno().getText().equals("") || jf.getFieldCargaHoraria().getText().equals("")
-				|| jf.getFieldTituloProjeto().getText().equals("") || jf.getFieldLocalProjeto().getText().equals("")
-				|| jf.getFieldGrupoPesquisa().getText().equals("") || jf.getFieldNomeOrientador().getText().equals("")
-				|| jf.getFieldRamalOrientador().getText().equals("") || jf.getFieldEmailOrientador().getText().equals("")
-				|| jf.getFieldCelularOrientador().getText().equals("")) {
+		if (jf.getFieldNomeAluno().getText() == null || jf.getFieldCPFAluno().getText() == null
+				|| jf.getFieldRGAluno().getText() == null || jf.getFieldEmailAluno().getText() == null
+				|| jf.getFieldCursoAluno().getText() == null || jf.getFieldInstituicao().getText() == null
+				|| jf.getFieldSerieAluno().getText() == null || jf.getFieldCargaHoraria().getText() == null
+				|| jf.getFieldTituloProjeto().getText() == null || jf.getFieldLocalProjeto().getText() == null
+				|| jf.getFieldGrupoPesquisa().getText() == null || jf.getFieldNomeOrientador().getText() == null
+				|| jf.getFieldRamalOrientador().getText() == null || jf.getFieldEmailOrientador().getText() == null
+				|| jf.getFieldCelularOrientador().getText() == null) {
 			jf.avisoCamposVazios();
 			return false;
 		}
@@ -114,11 +114,25 @@ public class FormularioControle {
 			return false;
 		}
 
-		alunoDao.cadastrarAluno(aluno, inscricaoDao);
-		orientadorDao.cadastrarOrientador(orientador, inscricaoDao);
-		projetoDao.cadastrarProjeto(projeto, inscricaoDao);
-
-		return true;
+		boolean resultadoAluno = alunoDao.cadastrarAluno(aluno, inscricaoDao);
+		if(resultadoAluno) {
+			boolean resultadoOrientador = orientadorDao.cadastrarOrientador(orientador, inscricaoDao);
+			if(resultadoOrientador) {
+				boolean resultadoProjeto = projetoDao.cadastrarProjeto(projeto, inscricaoDao);
+				if(resultadoProjeto) {
+					limparCamposFormulario(jf);
+					jf.avisoSucessoInscricao();
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+		
 	}
 
 	// Obtem os valores presentes nos campos preenchiveis de dados de aluno
@@ -172,17 +186,41 @@ public class FormularioControle {
 	
 	public String obterFaseProjeto(JanelaFormulario jf) {
 		
-		String faseProjeto = null;
+		String faseProjeto = jf.getRdbtnFaseInicial().getText();;
 		
-		if(jf.getRdbtnFaseInicial().isSelected()) {
-			faseProjeto = jf.getRdbtnFaseInicial().getText();
-		} else if(jf.getRdbtnFaseIntermediaria().isSelected()) {
+		if(jf.getRdbtnFaseIntermediaria().isSelected()) {
 			faseProjeto = jf.getRdbtnFaseIntermediaria().getText();
 		} else if(jf.getRdbtnFaseFinal().isSelected()) {
 			faseProjeto = jf.getRdbtnFaseFinal().getText();
 		}
 		
 		return faseProjeto;
+	}
+	
+	public void limparCamposFormulario(JanelaFormulario jf) {
+		
+		jf.getFieldNomeAluno().setText("");
+		jf.getFieldCPFAluno().setText("");
+		jf.getFieldRGAluno().setText("");
+		jf.getFieldCursoAluno().setText("");
+		jf.getFieldCargaHoraria().setText("");
+		jf.getFieldEmailAluno().setText("");
+		jf.getFieldInstituicao().setText("");
+		jf.getFieldSerieAluno().setText("");
+		jf.getFieldNomeOrientador().setText("");
+		jf.getFieldEmailOrientador().setText("");
+		jf.getFieldCelularOrientador().setText("");
+		jf.getFieldRamalOrientador().setText("");
+		jf.getFieldDepartamentoOrientador().setText("");
+		jf.getFieldGrupoPesquisa().setText("");
+		jf.getFieldTituloProjeto().setText("");
+		caminhoDocs = null;
+		caminhoHistEscolar = null;
+		caminhoParecer = null;
+		caminhoPlanoTrabalho = null;
+		jf.getRdbtnFaseInicial().setSelected(true);
+		jf.getRdbtnUFCSPA().setSelected(true);
+		
 	}
 
 }

@@ -55,6 +55,8 @@ public class GerenciamentoControle {
 				boolean resultado = inscricaoDao.excluirInscricao(id_inscricao);
 
 				jg.avisoResultadoExclusao(resultado);
+				
+				jg.getFieldInformeId().setText("");
 			}
 
 		}

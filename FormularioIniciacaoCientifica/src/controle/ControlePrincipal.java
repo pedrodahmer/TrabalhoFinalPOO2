@@ -57,6 +57,7 @@ public class ControlePrincipal implements ActionListener, MouseListener {
 		this.jf.getBtnFinalizar().addActionListener(this);
 
 		this.jg.getBtnExcluirInscricao().addActionListener(this);
+		this.jg.getBtnRecarregar().addActionListener(this);
 
 		this.jl.getLblSenhaEsquecida().addMouseListener(this);
 	}
@@ -179,6 +180,8 @@ public class ControlePrincipal implements ActionListener, MouseListener {
 		// Chamada de metodos da tela de gerenciamento
 		else if (e.getActionCommand().equals("excluirInscricao")) {
 			jgc.excluirInscricao(jg);
+		} else if(e.getActionCommand().equals("recarregarTabela")) {
+			jgc.preencherTabela(jg);
 		}
 	}
 

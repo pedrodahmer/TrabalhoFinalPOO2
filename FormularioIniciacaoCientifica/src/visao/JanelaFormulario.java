@@ -619,5 +619,9 @@ public class JanelaFormulario extends JPanel {
 	public void avisoCamposVazios() {
 		JOptionPane.showMessageDialog(this, "Preencha todos os campos!", "Aviso", JOptionPane.WARNING_MESSAGE);
 	}
+	
+	public void avisoSucessoInscricao() {
+		JOptionPane.showMessageDialog(this, "Inscrição concluída", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+	}
 
 }
