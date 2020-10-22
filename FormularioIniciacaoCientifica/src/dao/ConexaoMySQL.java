@@ -6,39 +6,39 @@ import java.sql.DriverManager;
 import dao.ConexaoMySQL;
 
 public class ConexaoMySQL {
-	
+
 	private static Connection con;
 	private static String status;
-	
+
 	public ConexaoMySQL() {
-		
+
 	}
-	
+
 	public static void abrirConexao() {
-		
+
 		String serverName = "localhost";
 		String database = "trabalho_final_poo";
 		String url = "jdbc:mysql://" + serverName + ":3306/" + database + "?useTimezone=true&serverTimezone=UTC";
 		String userName = "teste";
 		String password = "root";
-		
+
 		try {
 			con = DriverManager.getConnection(url, userName, password);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
-		if(con != null) {
+
+		if (con != null) {
 			status = "STATUS -----> Conectado com sucesso!";
 		} else {
 			status = "STATUS -----> Não foi possível realizar a conexão";
 		}
-		
-	}	
-	
+
+	}
+
 	public static boolean fecharConexao() {
-		
+
 		try {
 			con.close();
 			System.out.println("Conexão encerrada!");
@@ -50,11 +50,11 @@ public class ConexaoMySQL {
 		}
 
 	}
-	
+
 	public static void obterStatusConexao() {
 		System.out.println(status);
 	}
-	
+
 	public static Connection getCon() {
 		return con;
 	}
@@ -64,11 +64,11 @@ public class ConexaoMySQL {
 	}
 
 	public static void main(String[] args) {
-		
+
 		ConexaoMySQL.abrirConexao();
 		ConexaoMySQL.obterStatusConexao();
 		ConexaoMySQL.fecharConexao();
-		
+
 	}
 
 }

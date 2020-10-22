@@ -1,14 +1,15 @@
 package modelo;
 
 public class Orientador {
-	
+
 	private String nome;
 	private String departamento;
 	private int ramal;
 	private String email;
 	private String telefoneCelular;
-	
-	public Orientador() {}
+
+	public Orientador() {
+	}
 
 	public Orientador(String nome, String departamento, int ramal, String email, String telefoneCelular) {
 		super();
@@ -58,7 +59,5 @@ public class Orientador {
 	public void setTelefoneCelular(String telefoneCelular) {
 		this.telefoneCelular = telefoneCelular;
 	}
-	
-	
 
 }

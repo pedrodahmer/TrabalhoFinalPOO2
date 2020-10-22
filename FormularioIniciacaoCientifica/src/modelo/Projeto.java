@@ -1,13 +1,13 @@
 package modelo;
 
 public class Projeto {
-	
+
 	private String titulo;
 	private String grupoPesquisa;
 	private String unidade;
 	private String faseProjeto;
 	private String parecerCEP_CEUA;
-	
+
 	public Projeto(String titulo, String grupoPesquisa, String unidade, String faseProjeto, String parecerCEP_CEUA) {
 		this.titulo = titulo;
 		this.grupoPesquisa = grupoPesquisa;

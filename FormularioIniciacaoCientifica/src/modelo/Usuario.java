@@ -1,11 +1,12 @@
 package modelo;
 
 public class Usuario {
-	
+
 	private String nome;
 	private String senha;
-	
-	public Usuario() {}
+
+	public Usuario() {
+	}
 
 	public Usuario(String nome, String senha) {
 		this.nome = nome;

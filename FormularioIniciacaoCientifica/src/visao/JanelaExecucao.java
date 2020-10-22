@@ -27,7 +27,7 @@ public class JanelaExecucao extends JFrame {
 	private JMenuItem itemSair;
 	private JLabel lblNomeUser;
 	private JMenuItem itemGerenciamento;
-	
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -42,32 +42,33 @@ public class JanelaExecucao extends JFrame {
 	}
 
 	public JanelaExecucao() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(JanelaExecucao.class.getResource("/imagens/icon-ufcspa-quadrado.png")));
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(JanelaExecucao.class.getResource("/imagens/icon-ufcspa-quadrado.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		setResizable(false);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		
+
 		JMenu mnArquivo = new JMenu("Arquivo");
 		menuBar.add(mnArquivo);
-		
+
 		itemNovoForm = new JMenuItem("Realizar nova inscri\u00E7\u00E3o");
 		itemNovoForm.setActionCommand("novoForm");
 		itemNovoForm.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/icon-inscricao.png")));
 		mnArquivo.add(itemNovoForm);
-		
+
 		itemGerenciamento = new JMenuItem("Gerenciar Inscri\u00E7\u00F5es");
 		itemGerenciamento.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/icon-lista.png")));
 		itemGerenciamento.setActionCommand("gerenciar");
 		mnArquivo.add(itemGerenciamento);
-		
+
 		itemMenuPrincipal = new JMenuItem("Menu principal");
 		itemMenuPrincipal.setActionCommand("menuPrincipal");
 		itemMenuPrincipal.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/icon-home.png")));
 		mnArquivo.add(itemMenuPrincipal);
-		
+
 		itemSair = new JMenuItem("Sair");
 		itemSair.setActionCommand("sair");
 		itemSair.setIcon(new ImageIcon(JanelaExecucao.class.getResource("/imagens/exit.png")));
@@ -77,21 +78,23 @@ public class JanelaExecucao extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[214.00,grow][grow]", "[grow]"));
-		
+
 		JLabel lblUfcspa = new JLabel("");
 		lblUfcspa.setBounds(0, 0, 140, 70);
 		try {
-			lblUfcspa.setIcon(new ImageIcon(ImageIO.read(JanelaPrincipal.class.getResource("/imagens/informatica-biomedica.png")).getScaledInstance(lblUfcspa.getWidth(), lblUfcspa.getHeight(), BufferedImage.TYPE_INT_RGB)));
+			lblUfcspa.setIcon(new ImageIcon(ImageIO
+					.read(JanelaPrincipal.class.getResource("/imagens/informatica-biomedica.png"))
+					.getScaledInstance(lblUfcspa.getWidth(), lblUfcspa.getHeight(), BufferedImage.TYPE_INT_RGB)));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 		contentPane.add(lblUfcspa, "flowx,cell 0 0,alignx center");
-		
+
 		JLabel lblBemVindo = new JLabel("Bem-vindo,");
 		lblBemVindo.setFont(new Font("Arial", Font.BOLD, 19));
 		contentPane.add(lblBemVindo, "flowx,cell 1 0");
-		
+
 		lblNomeUser = new JLabel("");
 		lblNomeUser.setFont(new Font("Arial", Font.BOLD, 19));
 		contentPane.add(lblNomeUser, "cell 1 0");
@@ -136,5 +139,5 @@ public class JanelaExecucao extends JFrame {
 	public void setItemGerenciamento(JMenuItem itemGerenciamento) {
 		this.itemGerenciamento = itemGerenciamento;
 	}
-	
+
 }

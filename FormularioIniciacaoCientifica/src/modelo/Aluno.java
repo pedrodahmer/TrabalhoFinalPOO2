@@ -1,7 +1,7 @@
 package modelo;
 
 public class Aluno {
-	
+
 	private String nome;
 	private String rg;
 	private String cpf;
@@ -14,7 +14,8 @@ public class Aluno {
 	private String copiaDocumento;
 	private String histEscolar;
 
-	public Aluno() {}
+	public Aluno() {
+	}
 
 	public Aluno(String nome, String rg, String cpf, String email, String curso, String instituicao, String serie,
 			String planoTrabalho, int horasSemanais, String copiaDocumento, String histEscolar) {
@@ -118,5 +119,5 @@ public class Aluno {
 	public void setHistEscolar(String histEscolar) {
 		this.histEscolar = histEscolar;
 	}
-	
+
 }

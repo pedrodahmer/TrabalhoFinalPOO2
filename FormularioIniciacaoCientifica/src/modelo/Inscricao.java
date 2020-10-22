@@ -6,8 +6,9 @@ public class Inscricao {
 	private String nomeAluno;
 	private String tituloProjeto;
 	private String nomeOrientador;
-	
-	public Inscricao() {}
+
+	public Inscricao() {
+	}
 
 	public Inscricao(int id_inscricao, String nomeAluno, String tituloProjeto, String nomeOrientador) {
 		this.id_inscricao = id_inscricao;
@@ -47,5 +48,5 @@ public class Inscricao {
 	public void setNomeOrientador(String nomeOrientador) {
 		this.nomeOrientador = nomeOrientador;
 	}
-	
+
 }
