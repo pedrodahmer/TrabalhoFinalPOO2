@@ -24,13 +24,13 @@ public class ProjetoDAO {
 
 		if (con != null) {
 
-			String sql = "INSERT INTO projeto (titulo, unidade, grupopesquisa, parecer_cep_ceua, faseprojeto) "
+			String insereProjeto = "INSERT INTO projeto (titulo, unidade, grupopesquisa, parecer_cep_ceua, faseprojeto) "
 					+ "VALUES (?, ?, ?, ?, ?)";
 
 			PreparedStatement prepStmt = null;
 
 			try {
-				prepStmt = con.prepareStatement(sql);
+				prepStmt = con.prepareStatement(insereProjeto);
 
 				prepStmt.setString(1, p.getTitulo());
 				prepStmt.setString(2, p.getUnidade());
@@ -44,10 +44,10 @@ public class ProjetoDAO {
 
 					int lastInsertedId = i.obterUltimoIdInserido();
 
-					String sql2 = "UPDATE inscricao_ic SET id_projeto_fk = LAST_INSERT_ID()"
+					String atualizaInscricao = "UPDATE inscricao_ic SET id_projeto_fk = LAST_INSERT_ID()"
 							+ "WHERE id_inscricao_ic = " + lastInsertedId;
 
-					PreparedStatement prepStmt2 = con.prepareStatement(sql2);
+					PreparedStatement prepStmt2 = con.prepareStatement(atualizaInscricao);
 
 					res = prepStmt2.executeUpdate();
 
@@ -84,13 +84,13 @@ public class ProjetoDAO {
 
 		if (con != null) {
 
-			String exclusao = "DELETE FROM projeto WHERE id_projeto = " + id_projeto;
+			String excluiProjeto = "DELETE FROM projeto WHERE id_projeto = " + id_projeto;
 
 			PreparedStatement prepStmt = null;
 
 			try {
 
-				prepStmt = con.prepareStatement(exclusao);
+				prepStmt = con.prepareStatement(excluiProjeto);
 
 				int resultado = prepStmt.executeUpdate();
 

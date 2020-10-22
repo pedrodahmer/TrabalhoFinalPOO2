@@ -25,13 +25,13 @@ public class AlunoDAO {
 
 		if (con != null) {
 
-			String sql = "INSERT INTO aluno(nome, email, cpf, rg, curso, instituicao, serie,"
+			String insereAluno = "INSERT INTO aluno(nome, email, cpf, rg, curso, instituicao, serie,"
 					+ "horas_semanas, plano_trabalho, copia_rg_cpf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 			PreparedStatement prepStmt = null;
 
 			try {
-				prepStmt = con.prepareStatement(sql);
+				prepStmt = con.prepareStatement(insereAluno);
 
 				prepStmt.setString(1, a.getNome());
 				prepStmt.setString(2, a.getEmail());
@@ -48,14 +48,19 @@ public class AlunoDAO {
 
 				if (res == 1) {
 
-					String sql2 = "INSERT INTO inscricao_ic (id_aluno_fk) VALUES (LAST_INSERT_ID())";
+					String insereInscricao = "INSERT INTO inscricao_ic (id_aluno_fk) VALUES (LAST_INSERT_ID())";
 
-					PreparedStatement prepStmt2 = con.prepareStatement(sql2);
+					PreparedStatement prepStmt2 = con.prepareStatement(insereInscricao);
 
-					prepStmt2.executeUpdate();
+					int resultado = prepStmt2.executeUpdate();
 
-					ConexaoMySQL.fecharConexao();
-					return true;
+					if(resultado == 1) {
+						ConexaoMySQL.fecharConexao();
+						return true;
+					} else {
+						ConexaoMySQL.fecharConexao();
+						return false;
+					}
 
 				} else {
 					ConexaoMySQL.fecharConexao();
@@ -81,13 +86,13 @@ public class AlunoDAO {
 
 		if (con != null) {
 
-			String exclusao = "DELETE FROM aluno WHERE id_aluno = " + id_aluno;
+			String excluiAluno = "DELETE FROM aluno WHERE id_aluno = " + id_aluno;
 
 			PreparedStatement prepStmt = null;
 
 			try {
 
-				prepStmt = con.prepareStatement(exclusao);
+				prepStmt = con.prepareStatement(excluiAluno);
 
 				int resultado = prepStmt.executeUpdate();
 

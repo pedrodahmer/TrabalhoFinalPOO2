@@ -24,13 +24,13 @@ public class OrientadorDAO {
 
 		if (con != null) {
 
-			String sql = "INSERT INTO orientador (nome, departamento, email, ramal, celular) "
+			String insereOrientador = "INSERT INTO orientador (nome, departamento, email, ramal, celular) "
 					+ "VALUES (?, ?, ?, ?, ?)";
 
 			PreparedStatement prepStmt = null;
 
 			try {
-				prepStmt = con.prepareStatement(sql);
+				prepStmt = con.prepareStatement(insereOrientador);
 
 				prepStmt.setString(1, o.getNome());
 				prepStmt.setString(2, o.getDepartamento());
@@ -44,10 +44,10 @@ public class OrientadorDAO {
 
 					int lastInsertedId = i.obterUltimoIdInserido();
 
-					String sql2 = "UPDATE inscricao_ic SET id_orientador_fk = LAST_INSERT_ID()"
+					String atualizaInscricao = "UPDATE inscricao_ic SET id_orientador_fk = LAST_INSERT_ID()"
 							+ "WHERE id_inscricao_ic = " + lastInsertedId;
 
-					PreparedStatement prepStmt2 = con.prepareStatement(sql2);
+					PreparedStatement prepStmt2 = con.prepareStatement(atualizaInscricao);
 
 					res = prepStmt2.executeUpdate();
 
@@ -83,13 +83,13 @@ public class OrientadorDAO {
 
 		if (con != null) {
 
-			String exclusao = "DELETE FROM orientador WHERE id_orientador = " + id_orientador;
+			String excluiOrientador = "DELETE FROM orientador WHERE id_orientador = " + id_orientador;
 
 			PreparedStatement prepStmt = null;
 
 			try {
 
-				prepStmt = con.prepareStatement(exclusao);
+				prepStmt = con.prepareStatement(excluiOrientador);
 
 				int resultado = prepStmt.executeUpdate();
 
