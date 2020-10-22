@@ -59,8 +59,19 @@ public class LoginControle {
 			jl.avisoCampoNomeVazio();
 		} else {
 			String novaSenha = jl.obterNovaSenha();
-
-			usuarioDAO.atualizarSenha(novaSenha, nomeUsuario);
+			
+			if(novaSenha != null && !novaSenha.equals("")) {
+				boolean resultado = usuarioDAO.atualizarSenha(novaSenha, nomeUsuario);
+			
+				if(resultado) {
+					jl.avisoSenhaNovaSucesso();
+				} else {
+					jl.avisoSenhaNovaErro();
+				}
+			} else {
+				jl.avisoSenhaNovaVazia();
+			}
+			
 		}
 
 	}

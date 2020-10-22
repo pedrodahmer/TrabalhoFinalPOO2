@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JTextField;
+
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -129,6 +130,18 @@ public class JanelaLogin extends JPanel {
 
 		return novaSenha;
 
+	}
+	
+	public void avisoSenhaNovaVazia() {
+		JOptionPane.showMessageDialog(this, "Insira uma senha nova para atualizar!", "Aviso", JOptionPane.WARNING_MESSAGE);
+	}
+	
+	public void avisoSenhaNovaSucesso() {
+		JOptionPane.showMessageDialog(this, "Senha atualizada!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	public void avisoSenhaNovaErro() {
+		JOptionPane.showMessageDialog(this, "Erro ao atualizar a senha!", "Aviso", JOptionPane.ERROR_MESSAGE);
 	}
 
 	public void avisoCampoNomeVazio() {
