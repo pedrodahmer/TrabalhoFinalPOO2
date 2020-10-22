@@ -49,6 +49,7 @@ public class ClasseControle implements ActionListener, MouseListener {
 		this.je.getItemSair().addActionListener(this);
 		this.je.getItemGerenciamento().addActionListener(this);
 		
+		this.jf.getBtnAnexarHistEscolar().addActionListener(this);
 		this.jf.getBtnAnexarParecer().addActionListener(this);
 		this.jf.getBtnAnexarDocs().addActionListener(this);
 		this.jf.getBtnAnexarPlano().addActionListener(this);
@@ -133,6 +134,9 @@ public class ClasseControle implements ActionListener, MouseListener {
 		//chamada dos métodos da tela de formulário
 		else if(e.getActionCommand().equals("novoForm")) {
 			jfc.abrirJanelaFormulario(je, jf);
+		} 
+		else if(e.getActionCommand().equals("botao-historico-escolar")) {
+			jfc.anexarArquivos(jf, "histEscolar");
 		} 
 		else if(e.getActionCommand().equals("anexarDocs")) {
 			jfc.anexarArquivos(jf, "docs");

@@ -37,8 +37,10 @@ public class LoginControle {
 			System.out.println("usuario encontrado!");
 			return true;
 		}
+		else {
+			jl.avisoUsuarioNaoEncontrado();
+		}		
 		
-		System.out.println("nao encontrou");
 		return false;
 	}
 	

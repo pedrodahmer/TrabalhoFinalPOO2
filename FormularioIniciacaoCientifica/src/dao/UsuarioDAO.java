@@ -97,6 +97,7 @@ public class UsuarioDAO {
 		return false;
 	}
 
+	//Realiza o UPDATE do campo senha da table aluno
 	public boolean atualizarSenha(String novaSenha, String nomeUsuario) {
 		
 		ConexaoMySQL.abrirConexao();

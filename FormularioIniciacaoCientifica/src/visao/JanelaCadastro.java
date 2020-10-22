@@ -3,6 +3,8 @@ package visao;
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -88,6 +90,15 @@ public class JanelaCadastro extends JPanel {
 		this.btnCadastrar = btnCadastrar;
 	}
 	
+	public void avisoSucessoCadastro() {
+		JOptionPane.showMessageDialog(this, "Usuário cadastrado com sucesso!", "Sucesso!", JOptionPane.PLAIN_MESSAGE);		
+	}
 	
-
+	public void avisoFalhaCadastro() {
+		JOptionPane.showMessageDialog(this, "Houve um erro no cadastro. Tente novamente!", "Erro!", JOptionPane.ERROR_MESSAGE);		
+	}
+	
+	public void avisoPreenchaOsCampos() {
+		JOptionPane.showMessageDialog(this, "Preencha todos os campos e tente novamente", "Aviso!", JOptionPane.WARNING_MESSAGE);		
+	}
 }

@@ -24,6 +24,11 @@ public class CadastroControle {
 		String nome = jc.getFieldNomeUsuario().getText();
 		String senha = jc.getFieldSenhaUsuario().getText();
 		
+		if(nome.equals("") || senha.equals("")) {
+			jc.avisoPreenchaOsCampos();
+			return false;
+		}
+		
 		Usuario u = new Usuario(nome, senha);
 		
 		boolean resultado = usuarioDAO.cadastraUsuario(u);
@@ -32,10 +37,11 @@ public class CadastroControle {
 		jc.getFieldSenhaUsuario().setText("");
 		
 		if(resultado) {
-			System.out.println("OK!");
+			jc.avisoSucessoCadastro();
 			return true;
 		}
 		
+		jc.avisoFalhaCadastro();
 		return false;
 	}
 	
@@ -44,5 +50,7 @@ public class CadastroControle {
 		jc.getFieldNomeUsuario().setText("");
 		jc.getFieldSenhaUsuario().setText("");
 	}
+	
+	
 	
 }

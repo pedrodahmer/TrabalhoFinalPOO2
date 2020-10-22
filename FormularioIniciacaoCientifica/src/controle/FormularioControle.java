@@ -53,6 +53,9 @@ public class FormularioControle {
 				case "parecer":
 					caminhoParecer = fileChooser.getSelectedFile().getAbsolutePath();
 					break;
+				case "histEscolar":
+					caminhoHistEscolar = fileChooser.getSelectedFile().getAbsolutePath();
+					break;
 			}
 			
 		}

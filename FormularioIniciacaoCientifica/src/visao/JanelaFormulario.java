@@ -156,8 +156,10 @@ public class JanelaFormulario extends JPanel {
 		fieldInstituicao.setColumns(10);
 		
 		btnAnexarHistEscolar = new JButton("Anexar Hist\u00F3rico Escolar");
+		btnAnexarHistEscolar.setActionCommand("botao-historico-escolar");
 		pnlDadosAluno.add(btnAnexarHistEscolar, "cell 1 7,growx");
 		
+		//Faz com que o text field de inscrição mude de cor e fique desabilitado dependendo do radio button selecionado
 		rdbtnUFCSPA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnUFCSPA.isSelected()) {
@@ -165,12 +167,10 @@ public class JanelaFormulario extends JPanel {
 					fieldInstituicao.setBackground(Color.LIGHT_GRAY);
 					
 					btnAnexarDocs.setVisible(false);
-					btnAnexarHistEscolar.setVisible(false);
 					lblDocsAdicionais.setVisible(false);
 				}
 			}
-		});
-		
+		});		
 		rdbtnOutra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnOutra.isSelected()) {

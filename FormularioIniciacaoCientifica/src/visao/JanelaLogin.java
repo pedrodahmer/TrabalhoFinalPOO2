@@ -134,5 +134,8 @@ public class JanelaLogin extends JPanel {
 	public void avisoCampoNomeVazio() {
 		JOptionPane.showMessageDialog(this, "Preencha o campo nome!", "Aviso", JOptionPane.WARNING_MESSAGE);
 	}
-
+	
+	public void avisoUsuarioNaoEncontrado() {
+		JOptionPane.showMessageDialog(this, "Usuário não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);		
+	}
 }
