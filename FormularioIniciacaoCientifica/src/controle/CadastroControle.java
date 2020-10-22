@@ -13,15 +13,17 @@ public class CadastroControle {
 
 	// Método que realiza a troca de tela para a tela de cadastro apenas recebendo
 	// as telas já inicializadas como parâmtros
-	public void handlesAbrirCadastro(JanelaCadastro jc, JanelaPrincipal jp) {
+	public void abrirCadastro(JanelaCadastro jc, JanelaPrincipal jp) {
+		
 		jp.getContentPane().add(jc, "telaCadastro");
 		CardLayout cl = (CardLayout) jp.getContentPane().getLayout();
 		cl.show(jp.getContentPane(), "telaCadastro");
+	
 	}
 
 	// Realiza o cadastro do usuário, criando um Usuário u com os dados da tela de
 	// cadastro e acionando o método que realiza o cadastro na classe DAO
-	public boolean handlesCadastro(JanelaCadastro jc) {
+	public boolean cadastro(JanelaCadastro jc) {
 		String nome = jc.getFieldNomeUsuario().getText();
 		String senha = jc.getFieldSenhaUsuario().getText();
 
@@ -47,7 +49,7 @@ public class CadastroControle {
 	}
 
 	// Método responsável por limpar os campos da tela de cadastro
-	public void handlesLimparCadastro(JanelaCadastro jc) {
+	public void limparCadastro(JanelaCadastro jc) {
 		jc.getFieldNomeUsuario().setText("");
 		jc.getFieldSenhaUsuario().setText("");
 	}

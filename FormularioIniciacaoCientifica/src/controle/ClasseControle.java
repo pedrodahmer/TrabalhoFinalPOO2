@@ -25,7 +25,7 @@ public class ClasseControle implements ActionListener, MouseListener {
 
 	public ClasseControle(JanelaPrincipal jp, JanelaLogin jl, JanelaCadastro jc, JanelaExecucao je, JanelaFormulario jf,
 			JanelaGerenciamento jg) {
-		// Declaração de todas as janelas da aplicação
+		// Declaracao de todas as janelas da aplicacao
 		this.jl = jl;
 		this.jp = jp;
 		this.jc = jc;
@@ -33,7 +33,7 @@ public class ClasseControle implements ActionListener, MouseListener {
 		this.jf = jf;
 		this.jg = jg;
 
-		// Adicionando ActionListener em todos os componentes que realizam uma função
+		// Adicionando ActionListener em todos os componentes que realizam uma funcao
 		this.jp.getBtnLogin().addActionListener(this);
 		this.jp.getBtnCadastro().addActionListener(this);
 		this.jp.getItemMenuPrincipal().addActionListener(this);
@@ -61,7 +61,7 @@ public class ClasseControle implements ActionListener, MouseListener {
 		this.jl.getLblSenhaEsquecida().addMouseListener(this);
 	}
 
-	// Instanciando as classes que controlam cada uma das telas do pacote visão
+	// Instanciando as classes que controlam cada uma das telas do pacote visao
 	LoginControle jlc = new LoginControle();
 	CadastroControle jcc = new CadastroControle();
 	InscricoesControle jec = new InscricoesControle();
@@ -71,7 +71,7 @@ public class ClasseControle implements ActionListener, MouseListener {
 	public ClasseControle() {
 	}
 
-	// Método oriundo da interface MouseListener
+	// Metodo oriundo da interface MouseListener
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -84,60 +84,90 @@ public class ClasseControle implements ActionListener, MouseListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
-		// métodos da tela principal
-		if (e.getActionCommand().equals("Menu Principal")) {
+		// Metodos da tela principal
+		if (e.getActionCommand().equals("menuPrincipal")) {
+			
 			// Utilizando card layout para abrir um novo JPanel
 			CardLayout cl = (CardLayout) jp.getContentPane().getLayout();
 			cl.show(jp.getContentPane(), "janelaPrincipal");
+		
 		} else if (e.getActionCommand().equals("sair-janelaPrincipal")) {
 			System.exit(0);
 		}
 
-		// chamada dos métodos da tela de login
-		else if (e.getActionCommand().equals("Login")) {
+		// Chamada dos metodos da tela de login
+		else if (e.getActionCommand().equals("login")) {
+		
 			jlc.handlesAbrirLogin(jl, jp);
-		} else if (e.getActionCommand().equals("Logar")) {
+		
+		} else if (e.getActionCommand().equals("logar")) {
 			jec.exibirNomeUsuario(jl, je);
+			
 			boolean resultado = jlc.handlesLogin(jl);
+			
 			if (resultado == true) {
 				jec.abrirExecucao(je);
 				jp.dispose();
 			}
+			
 		} else if (e.getActionCommand().equals("limpar-login")) {
+		
 			jlc.handlesLimparLogin(jl);
+		
 		}
 
-		// chamada dos métodos da tela de cadastro
-		else if (e.getActionCommand().equals("Cadastrar-se")) {
-			jcc.handlesAbrirCadastro(jc, jp);
+		// Chamada dos metodos da tela de cadastro
+		else if (e.getActionCommand().equals("cadastro")) {
+		
+			jcc.abrirCadastro(jc, jp);
+		
 		} else if (e.getActionCommand().equals("limpar-cadastro")) {
-			jcc.handlesLimparCadastro(jc);
-			;
-		} else if (e.getActionCommand().equals("Cadastrar")) {
-			jcc.handlesCadastro(jc);
+		
+			jcc.limparCadastro(jc);
+		
+		} else if (e.getActionCommand().equals("cadastrar")) {
+		
+			jcc.cadastro(jc);
+		
 		}
 
-		// chamada dos métodos da tela de execução
+		// Chamada dos metodos da tela de execucao
 		else if (e.getActionCommand().equals("menuPrincipal")) {
+		
 			jec.menuPrincipal(jp, je);
+		
 		} else if (e.getActionCommand().equals("sair")) {
+		
 			jec.sair();
+		
 		} else if (e.getActionCommand().equals("gerenciar")) {
+			
 			jec.abrirGerenciamento(je, jg);
 			jgc.preencherTabela(jg);
+		
 		}
 
-		// chamada dos métodos da tela de formulário
+		// Chamada dos metodos da tela de formulario
 		else if (e.getActionCommand().equals("novoForm")) {
+			
 			jfc.abrirJanelaFormulario(je, jf);
+			
 		} else if (e.getActionCommand().equals("botao-historico-escolar")) {
+			
 			jfc.anexarArquivos(jf, "histEscolar");
+		
 		} else if (e.getActionCommand().equals("anexarDocs")) {
+			
 			jfc.anexarArquivos(jf, "docs");
+		
 		} else if (e.getActionCommand().equals("anexarParecer")) {
+		
 			jfc.anexarArquivos(jf, "parecer");
+		
 		} else if (e.getActionCommand().equals("anexarPlanoTrabalho")) {
+		
 			jfc.anexarArquivos(jf, "planoTrabalho");
+		
 		} else if (e.getActionCommand().equals("finalizarInscricao")) {
 			boolean resultado = jfc.verificarCampos(jf);
 
@@ -152,8 +182,7 @@ public class ClasseControle implements ActionListener, MouseListener {
 		}
 	}
 
-	// Métodos OBRIGATÓRIOS da interface MouseListener,
-	// porém que não foram utilizados
+	// Metodos da interface MouseListener nao usados
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub

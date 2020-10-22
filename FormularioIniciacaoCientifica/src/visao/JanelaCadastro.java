@@ -54,6 +54,7 @@ public class JanelaCadastro extends JPanel {
 		add(btnLimpar, "flowx,cell 0 8,alignx center");
 
 		btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setActionCommand("cadastrar");
 		btnCadastrar.setIcon(new ImageIcon(JanelaCadastro.class.getResource("/imagens/icon-cadastro.png")));
 		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		add(btnCadastrar, "cell 0 8,aligny baseline");

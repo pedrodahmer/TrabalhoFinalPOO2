@@ -55,6 +55,7 @@ public class JanelaPrincipal extends JFrame {
 		itemSair.setActionCommand("sair-janelaPrincipal");
 
 		itemMenuPrincipal = new JMenuItem("Menu Principal");
+		itemMenuPrincipal.setActionCommand("menuPrincipal");
 		itemMenuPrincipal.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/icon-home.png")));
 		mnNewMenu.add(itemMenuPrincipal);
 		mnNewMenu.add(itemSair);
@@ -89,11 +90,13 @@ public class JanelaPrincipal extends JFrame {
 		panel.add(lblLogoUfcspa, "cell 0 1,alignx center");
 
 		btnLogin = new JButton("Login");
+		btnLogin.setActionCommand("login");
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnLogin.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/icon-login.png")));
 		panel.add(btnLogin, "cell 0 3,alignx center,aligny center");
 
 		btnCadastro = new JButton("Cadastrar-se");
+		btnCadastro.setActionCommand("cadastro");
 		btnCadastro.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnCadastro.setIcon(new ImageIcon(JanelaPrincipal.class.getResource("/imagens/icon-cadastro.png")));
 		panel.add(btnCadastro, "cell 0 4,alignx center");
