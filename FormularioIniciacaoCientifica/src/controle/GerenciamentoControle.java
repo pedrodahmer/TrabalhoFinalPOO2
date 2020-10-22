@@ -8,12 +8,12 @@ import dao.InscricaoDAO;
 import modelo.Inscricao;
 import visao.JanelaGerenciamento;
 
-public class JanelaGerenciamentoControle {
+public class GerenciamentoControle {
 
 	//Instanciando e inicializando a classe DAO utilizada, para que não seja nescessário que ela seja passada por parâmetro
 	private InscricaoDAO inscricaoDao = new InscricaoDAO();
 	
-	public JanelaGerenciamentoControle() {};
+	public GerenciamentoControle() {};
 	
 	//Pega o ArrayList que vem da classe DAO para realizar o preenhimento da tabela. Cada posição do ArrayList representa uma linha da tabela
 	public void preencherTabela(JanelaGerenciamento jg) {

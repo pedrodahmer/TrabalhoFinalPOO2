@@ -8,7 +8,7 @@ import visao.JanelaExecucao;
 import visao.JanelaLogin;
 import visao.JanelaPrincipal;
 
-public class JanelaLoginControle {
+public class LoginControle {
 	
 	//Instanciando e inicializando a classe DAO utilizada, para que não seja nescessário que ela seja passada por parâmetro
 	private UsuarioDAO usuarioDAO = new UsuarioDAO();

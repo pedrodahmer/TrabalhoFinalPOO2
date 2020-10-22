@@ -15,7 +15,7 @@ import modelo.Projeto;
 import visao.JanelaExecucao;
 import visao.JanelaFormulario;
 
-public class JanelaFormularioControle {
+public class FormularioControle {
 	
 	//Criação de variáveis para que elas possam armazenar o caminho dos arquivos selecionados pelo usuário
 	private String caminhoDocs = null;

@@ -60,11 +60,11 @@ public class ClasseControle implements ActionListener, MouseListener {
 	}
 	
 	//Instanciando as classes que controlam cada uma das telas do pacote visão
-	JanelaLoginControle jlc = new JanelaLoginControle();
-	JanelaCadastroControle jcc = new JanelaCadastroControle();
-	JanelaExecucaoControle jec = new JanelaExecucaoControle();
-	JanelaFormularioControle jfc = new JanelaFormularioControle();
-	JanelaGerenciamentoControle jgc = new JanelaGerenciamentoControle();
+	LoginControle jlc = new LoginControle();
+	CadastroControle jcc = new CadastroControle();
+	InscricoesControle jec = new InscricoesControle();
+	FormularioControle jfc = new FormularioControle();
+	GerenciamentoControle jgc = new GerenciamentoControle();
 	
 	public ClasseControle() {}
 	

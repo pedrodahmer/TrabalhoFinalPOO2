@@ -7,7 +7,7 @@ import modelo.Usuario;
 import visao.JanelaCadastro;
 import visao.JanelaPrincipal;
 
-public class JanelaCadastroControle {
+public class CadastroControle {
 
 	private UsuarioDAO usuarioDAO = new UsuarioDAO();
 	

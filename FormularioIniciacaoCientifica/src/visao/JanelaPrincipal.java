@@ -41,7 +41,7 @@ public class JanelaPrincipal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		
-		setResizable(false); // Desabilitar redimensionamento
+		setResizable(false); //Desabilitar redimensionamento
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);

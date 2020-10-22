@@ -7,7 +7,7 @@ import visao.JanelaGerenciamento;
 import visao.JanelaLogin;
 import visao.JanelaPrincipal;
 
-public class JanelaExecucaoControle {
+public class InscricoesControle {
 	
 	//Abre a janela de execução
 	public void abrirExecucao(JanelaExecucao je){
