@@ -70,6 +70,18 @@ public class FormularioControle {
 
 	// Verifica se nenhum dos campos obrigatórios não foi preenchido
 	public boolean verificarCampos(JanelaFormulario jf) {
+		
+		if (jf.getFieldNomeAluno().getText() == null || jf.getFieldCPFAluno().getText() == null
+				|| jf.getFieldRGAluno().getText() == null || jf.getFieldEmailAluno().getText() == null
+				|| jf.getFieldCursoAluno().getText() == null || jf.getFieldInstituicao().getText() == null
+				|| jf.getFieldSerieAluno().getText() == null || jf.getFieldCargaHoraria().getText() == null
+				|| jf.getFieldTituloProjeto().getText() == null || jf.getFieldLocalProjeto().getText() == null
+				|| jf.getFieldGrupoPesquisa().getText() == null || jf.getFieldNomeOrientador().getText() == null
+				|| jf.getFieldRamalOrientador().getText() == null || jf.getFieldEmailOrientador().getText() == null
+				|| jf.getFieldCelularOrientador().getText() == null) {
+			jf.avisoCamposVazios();
+			return false;
+		}
 
 		if (jf.getRdbtnOutra().isSelected()) {
 			if (caminhoDocs == null) {
@@ -85,18 +97,6 @@ public class FormularioControle {
 		
 		if(caminhoPlanoTrabalho == null) {
 			jf.avisoDocPlanoTrabalho();
-			return false;
-		}
-
-		if (jf.getFieldNomeAluno().getText() == null || jf.getFieldCPFAluno().getText() == null
-				|| jf.getFieldRGAluno().getText() == null || jf.getFieldEmailAluno().getText() == null
-				|| jf.getFieldCursoAluno().getText() == null || jf.getFieldInstituicao().getText() == null
-				|| jf.getFieldSerieAluno().getText() == null || jf.getFieldCargaHoraria().getText() == null
-				|| jf.getFieldTituloProjeto().getText() == null || jf.getFieldLocalProjeto().getText() == null
-				|| jf.getFieldGrupoPesquisa().getText() == null || jf.getFieldNomeOrientador().getText() == null
-				|| jf.getFieldRamalOrientador().getText() == null || jf.getFieldEmailOrientador().getText() == null
-				|| jf.getFieldCelularOrientador().getText() == null) {
-			jf.avisoCamposVazios();
 			return false;
 		}
 
