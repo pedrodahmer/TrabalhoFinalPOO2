@@ -101,8 +101,8 @@ public class ClasseControle implements ActionListener, MouseListener {
 			boolean resultado = jlc.handlesLogin(jl);
 			if (resultado == true) {
 				jec.abrirExecucao(je);
+				jp.dispose();
 			}
-			jp.dispose();
 		} else if (e.getActionCommand().equals("limpar-login")) {
 			jlc.handlesLimparLogin(jl);
 		}

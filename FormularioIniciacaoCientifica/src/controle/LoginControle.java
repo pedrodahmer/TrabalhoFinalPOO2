@@ -35,7 +35,6 @@ public class LoginControle {
 		jl.getFieldSenha().setText("");
 
 		if (resultado) {
-			System.out.println("usuario encontrado!");
 			return true;
 		} else {
 			jl.avisoUsuarioNaoEncontrado();

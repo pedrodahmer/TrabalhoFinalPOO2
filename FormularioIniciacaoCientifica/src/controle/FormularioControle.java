@@ -148,7 +148,7 @@ public class FormularioControle {
 		String titulo = jf.getFieldTituloProjeto().getText();
 		String grupoPesquisa = jf.getFieldGrupoPesquisa().getText();
 		String unidade = jf.getFieldLocalProjeto().getText();
-		String faseProjeto = jf.getGrupoFaseProjeto().getSelection().toString();
+		String faseProjeto = obterFaseProjeto(jf);
 		String parecerCEP_CEUA = caminhoParecer;
 
 		Projeto projeto = new Projeto(titulo, grupoPesquisa, unidade, faseProjeto, parecerCEP_CEUA);
@@ -168,6 +168,21 @@ public class FormularioControle {
 		Orientador orientador = new Orientador(nome, departamento, ramal, email, telefoneCelular);
 
 		return orientador;
+	}
+	
+	public String obterFaseProjeto(JanelaFormulario jf) {
+		
+		String faseProjeto = null;
+		
+		if(jf.getRdbtnFaseInicial().isSelected()) {
+			faseProjeto = jf.getRdbtnFaseInicial().getText();
+		} else if(jf.getRdbtnFaseIntermediaria().isSelected()) {
+			faseProjeto = jf.getRdbtnFaseIntermediaria().getText();
+		} else if(jf.getRdbtnFaseFinal().isSelected()) {
+			faseProjeto = jf.getRdbtnFaseFinal().getText();
+		}
+		
+		return faseProjeto;
 	}
 
 }
