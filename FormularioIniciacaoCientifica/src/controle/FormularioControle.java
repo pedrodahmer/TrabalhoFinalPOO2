@@ -72,19 +72,31 @@ public class FormularioControle {
 	public boolean verificarCampos(JanelaFormulario jf) {
 
 		if (jf.getRdbtnOutra().isSelected()) {
-			if (caminhoDocs == null || caminhoHistEscolar == null) {
+			if (caminhoDocs == null) {
+				jf.avisoDocsRG_CPF();
 				return false;
 			}
 		}
+		
+		if(caminhoHistEscolar == null) {
+			jf.avisoDocHistEscolar();
+			return false;
+		}
+		
+		if(caminhoPlanoTrabalho == null) {
+			jf.avisoDocPlanoTrabalho();
+			return false;
+		}
 
-		if (jf.getFieldNomeAluno().getText() == null || jf.getFieldCPFAluno().getText() == null
-				|| jf.getFieldRGAluno().getText() == null || jf.getFieldEmailAluno().getText() == null
-				|| jf.getFieldCursoAluno().getText() == null || jf.getFieldInstituicao().getText() == null
-				|| jf.getFieldSerieAluno().getText() == null || jf.getFieldCargaHoraria().getText() == null
-				|| jf.getFieldTituloProjeto().getText() == null || jf.getFieldLocalProjeto().getText() == null
-				|| jf.getFieldGrupoPesquisa().getText() == null || jf.getFieldNomeOrientador().getText() == null
-				|| jf.getFieldRamalOrientador().getText() == null || jf.getFieldEmailOrientador().getText() == null
-				|| jf.getFieldCelularOrientador().getText() == null || caminhoPlanoTrabalho == null) {
+		if (jf.getFieldNomeAluno().getText().equals("") || jf.getFieldCPFAluno().getText().equals("")
+				|| jf.getFieldRGAluno().getText().equals("") || jf.getFieldEmailAluno().getText().equals("")
+				|| jf.getFieldCursoAluno().getText().equals("") || jf.getFieldInstituicao().getText().equals("")
+				|| jf.getFieldSerieAluno().getText().equals("") || jf.getFieldCargaHoraria().getText().equals("")
+				|| jf.getFieldTituloProjeto().getText().equals("") || jf.getFieldLocalProjeto().getText().equals("")
+				|| jf.getFieldGrupoPesquisa().getText().equals("") || jf.getFieldNomeOrientador().getText().equals("")
+				|| jf.getFieldRamalOrientador().getText().equals("") || jf.getFieldEmailOrientador().getText().equals("")
+				|| jf.getFieldCelularOrientador().getText().equals("")) {
+			jf.avisoCamposVazios();
 			return false;
 		}
 

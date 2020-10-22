@@ -593,11 +593,25 @@ public class JanelaFormulario extends JPanel {
 
 	// Caixas de dialogo
 	public void avisoDoc(boolean sinal) {
-
 		if (sinal) {
 			JOptionPane.showMessageDialog(this, "Documento anexado!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 		}
-
+	}
+	
+	public void avisoDocsRG_CPF() {
+		JOptionPane.showMessageDialog(this, "Anexe a cópia de RG e CPF!", "Aviso", JOptionPane.WARNING_MESSAGE);
+	}
+	
+	public void avisoDocHistEscolar() {
+		JOptionPane.showMessageDialog(this, "Anexe o histórico escolar!", "Aviso", JOptionPane.WARNING_MESSAGE);
+	}
+	
+	public void avisoDocPlanoTrabalho() {
+		JOptionPane.showMessageDialog(this, "Anexe o plano de trabalho!", "Aviso", JOptionPane.WARNING_MESSAGE);
+	}
+	
+	public void avisoCamposVazios() {
+		JOptionPane.showMessageDialog(this, "Preencha todos os campos!", "Aviso", JOptionPane.WARNING_MESSAGE);
 	}
 
 }
