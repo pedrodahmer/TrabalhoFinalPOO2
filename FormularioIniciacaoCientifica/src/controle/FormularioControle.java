@@ -214,6 +214,7 @@ public class FormularioControle {
 		jf.getFieldDepartamentoOrientador().setText("");
 		jf.getFieldGrupoPesquisa().setText("");
 		jf.getFieldTituloProjeto().setText("");
+		jf.getFieldLocalProjeto().setText("");
 		caminhoDocs = null;
 		caminhoHistEscolar = null;
 		caminhoParecer = null;
