@@ -14,7 +14,7 @@ import visao.JanelaGerenciamento;
 import visao.JanelaLogin;
 import visao.JanelaPrincipal;
 
-public class ClasseControle implements ActionListener, MouseListener {
+public class ControlePrincipal implements ActionListener, MouseListener {
 
 	private JanelaPrincipal jp;
 	private JanelaLogin jl;
@@ -23,7 +23,7 @@ public class ClasseControle implements ActionListener, MouseListener {
 	private JanelaFormulario jf;
 	private JanelaGerenciamento jg;
 
-	public ClasseControle(JanelaPrincipal jp, JanelaLogin jl, JanelaCadastro jc, JanelaExecucao je, JanelaFormulario jf,
+	public ControlePrincipal(JanelaPrincipal jp, JanelaLogin jl, JanelaCadastro jc, JanelaExecucao je, JanelaFormulario jf,
 			JanelaGerenciamento jg) {
 		// Declaracao de todas as janelas da aplicacao
 		this.jl = jl;
@@ -68,7 +68,7 @@ public class ClasseControle implements ActionListener, MouseListener {
 	FormularioControle jfc = new FormularioControle();
 	GerenciamentoControle jgc = new GerenciamentoControle();
 
-	public ClasseControle() {
+	public ControlePrincipal() {
 	}
 
 	// Metodo oriundo da interface MouseListener
